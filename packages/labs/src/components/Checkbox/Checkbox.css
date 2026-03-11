@@ -1,0 +1,58 @@
+.checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+
+.checkbox--disabled {
+  opacity: 0.6;
+}
+
+.checkbox--disabled,
+.checkbox--disabled .checkbox__input {
+  cursor: not-allowed;
+}
+
+.checkbox__control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: inherit;
+}
+
+.checkbox__box {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-main);
+  background: var(--bg-surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: all var(--transition-fast);
+}
+
+.checkbox__input:checked + .checkbox__box,
+.checkbox__input[aria-checked='mixed'] + .checkbox__box {
+  border-color: var(--checkbox-color, var(--color-primary));
+  background: var(--checkbox-color, var(--color-primary));
+  color: var(--text-inverse);
+}
+
+.checkbox__input:focus-visible + .checkbox__box {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--checkbox-color, var(--color-primary)), transparent 82%);
+}
+
+.checkbox__label {
+  color: var(--text-main);
+  line-height: var(--line-height-normal);
+}

@@ -1,0 +1,34 @@
+{
+  "name": "labs-monorepo",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/playground",
+    "build": "npm run build --workspace=packages/labs",
+    "build:all": "npm run build --workspace=packages/labs && npm run build --workspace=apps/playground",
+    "pack:labs": "npm pack --workspace=packages/labs",
+    "publish:labs": "npm publish --workspace=packages/labs",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,css,json,md}\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.59.0",
+    "@rollup/rollup-win32-x64-msvc": "^4.59.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.577.0"
+  }
+}

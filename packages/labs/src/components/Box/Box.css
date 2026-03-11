@@ -1,0 +1,49 @@
+.box {
+    display: block;
+}
+
+.box--border {
+    border: 1px solid var(--border-neutral, #E2E8F0);
+}
+
+.box-surface--default {
+    background-color: transparent;
+    color: inherit;
+}
+
+.box-surface--subtle {
+    background-color: var(--surface-alt, #E2E8F0);
+}
+
+.box-surface--raised {
+    background-color: var(--surface, #FFFFFF);
+}
+
+.box-surface--inverse {
+    background-color: var(--surface-inverse, #162033);
+    color: var(--text-inverse, #F3F6FB);
+}
+
+.box-padding--0 { padding: 0; }
+.box-padding--1 { padding: var(--space-1); }
+.box-padding--2 { padding: var(--space-2); }
+.box-padding--3 { padding: var(--space-3); }
+.box-padding--4 { padding: var(--space-4); }
+.box-padding--5 { padding: var(--space-5); }
+.box-padding--6 { padding: var(--space-6); }
+.box-padding--8 { padding: var(--space-8); }
+.box-padding--10 { padding: var(--space-10); }
+.box-padding--12 { padding: var(--space-12); }
+.box-padding--16 { padding: var(--space-16); }
+
+.box-rounded--none { border-radius: var(--radius-none); }
+.box-rounded--sm { border-radius: var(--radius-sm); }
+.box-rounded--md { border-radius: var(--radius-md); }
+.box-rounded--lg { border-radius: var(--radius-lg); }
+.box-rounded--xl { border-radius: var(--radius-xl); }
+.box-rounded--full { border-radius: var(--radius-full); }
+
+.box-shadow--none { box-shadow: none; }
+.box-shadow--sm { box-shadow: var(--shadow-sm); }
+.box-shadow--md { box-shadow: var(--shadow-md); }
+.box-shadow--lg { box-shadow: var(--shadow-lg); }

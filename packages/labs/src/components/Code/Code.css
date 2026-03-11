@@ -1,0 +1,28 @@
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background-color: var(--bg-surface-2);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  font-size: 0.85em;
+}
+
+.code--block {
+  display: block;
+  padding: var(--space-4);
+  overflow-x: auto;
+  line-height: var(--line-height-normal);
+  border: 1px solid var(--border-subtle);
+  white-space: pre;
+}
+
+.code--xs { font-size: var(--font-size-xs); }
+.code--sm { font-size: var(--font-size-sm); }
+.code--md { font-size: var(--font-size-md); }
+.code--lg { font-size: var(--font-size-lg); }
+.code--xl { font-size: var(--font-size-xl); }
+
+.code--bold { font-weight: var(--font-weight-bold); }
+.code--medium { font-weight: var(--font-weight-medium); }
+.code--normal { font-weight: var(--font-weight-normal); }
+.code--semibold { font-weight: var(--font-weight-semibold); }

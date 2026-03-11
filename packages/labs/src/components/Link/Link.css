@@ -1,0 +1,26 @@
+.link {
+  --link-color: var(--color-primary);
+  color: var(--link-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.link:hover {
+  opacity: 0.85;
+}
+
+.link--underline {
+  border-bottom: 1px solid transparent;
+}
+
+.link--underline:hover {
+  border-bottom-color: currentColor;
+}
+
+.link--active {
+  font-weight: var(--font-weight-bold);
+}

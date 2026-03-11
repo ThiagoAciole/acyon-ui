@@ -1,0 +1,46 @@
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.slider__track {
+  position: absolute;
+  left: 0;
+  right: 48px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-2);
+}
+
+.slider__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+}
+
+.slider__input {
+  position: relative;
+  width: calc(100% - 48px);
+  margin: 0;
+  background: transparent;
+  appearance: none;
+}
+
+.slider__input::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 0;
+}
+
+.slider__value {
+  width: 36px;
+  text-align: right;
+  color: var(--text-main);
+  font-size: var(--font-size-sm);
+}
