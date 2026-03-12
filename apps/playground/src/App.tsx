@@ -1,132 +1,114 @@
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 
 import {
+  Box,
   Container,
   Flex,
   Heading,
-  Sidebar,
-  useTheme,
-  MenuIcon,
-  FileIcon,
-  ActivityIcon,
   HomeIcon,
-  EditIcon,
-  ExternalLinkIcon,
   LayoutIcon,
+  MenuIcon,
   MoonIcon,
-  SunIcon
-} from '@aciole/labs'
-import { Dashboard } from "./pages/Dashboard";
-import { TypographyPage } from "./pages/TypographyPage";
-import { ButtonsPage } from "./pages/ButtonsPage";
-import { FormsPage } from "./pages/FormsPage";
-import { FeedbackPage } from "./pages/FeedbackPage";
-import { OverlaysPage } from "./pages/OverlaysPage";
-import { LayoutPage } from "./pages/LayoutPage";
+  Sidebar,
+  SunIcon,
+  Text,
+  useTheme,
+} from '@aciole/labs';
 
-type Page = 'dashboard' | 'typography' | 'buttons' | 'forms' | 'feedback' | 'overlays' | 'layout';
+import { ComponentShowcasePage } from './pages/ComponentShowcasePage';
+import { Dashboard } from './pages/Dashboard';
+import { componentRoutes, componentCategories } from './pages/componentRoutes';
+
+const DASHBOARD_ROUTE = 'dashboard';
+
+function getRouteFromHash() {
+  const route = window.location.hash.replace(/^#\/?/, '').trim();
+  return route || DASHBOARD_ROUTE;
+}
 
 export function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('dashboard');
+  const [currentPage, setCurrentPage] = useState<string>(getRouteFromHash);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'dashboard': return <Dashboard />;
-      case 'typography': return <TypographyPage />;
-      case 'buttons': return <ButtonsPage />;
-      case 'forms': return <FormsPage />;
-      case 'feedback': return <FeedbackPage />;
-      case 'overlays': return <OverlaysPage />;
-      case 'layout': return <LayoutPage />;
-      default: return <Dashboard />;
-    }
+  useEffect(() => {
+    const syncRoute = () => setCurrentPage(getRouteFromHash());
+
+    window.addEventListener('hashchange', syncRoute);
+    return () => window.removeEventListener('hashchange', syncRoute);
+  }, []);
+
+  const navigateTo = (routeId: string) => {
+    window.location.hash = routeId === DASHBOARD_ROUTE ? '/' : `/${routeId}`;
   };
 
-  return (
+  const currentRoute =
+    currentPage === DASHBOARD_ROUTE
+      ? null
+      : componentRoutes.find((route) => route.id === currentPage) ?? null;
 
-    <Flex style={{ height: '100vh' }}>
-      <Sidebar
-        collapsed={sidebarCollapsed}
-        onToggle={setSidebarCollapsed}
-      >
+  return (
+    <Flex style={{ height: '100vh', overflow: 'hidden' }}>
+      <Sidebar collapsed={sidebarCollapsed} onToggle={setSidebarCollapsed}>
         <Sidebar.Header icon={<MenuIcon size={18} />}>
-          <Heading size="xs">Labs Docs</Heading>
+          <Heading size="xs">Labs Design</Heading>
         </Sidebar.Header>
 
-        <div style={{ padding: 'var(--space-2)' }}>
+        <Box style={{ padding: 'var(--space-2)', overflowY: 'auto', flex: 1 }}>
           <Sidebar.Item
             icon={<HomeIcon size={18} />}
-            active={currentPage === 'dashboard'}
-            onClick={() => setCurrentPage('dashboard')}
+            active={currentPage === DASHBOARD_ROUTE}
+            onClick={() => navigateTo(DASHBOARD_ROUTE)}
           >
-            Início
+            Inicio
           </Sidebar.Item>
 
-          <Sidebar.Item
-            icon={<FileIcon size={18} />}
-            active={currentPage === 'typography'}
-            onClick={() => setCurrentPage('typography')}
-          >
-            Tipografia
-          </Sidebar.Item>
+          {componentCategories.map((category) => {
+            const routes = componentRoutes.filter((route) => route.category === category);
+            if (routes.length === 0) return null;
 
-          <Sidebar.Item
-            icon={<ActivityIcon size={18} />}
-            active={currentPage === 'buttons'}
-            onClick={() => setCurrentPage('buttons')}
-          >
-            Botões
-          </Sidebar.Item>
+            return (
+              <div key={category} style={{ marginTop: 'var(--space-4)' }}>
+                <Text
+                  size="xs"
+                  weight="bold"
+                  color="subtle"
+                  style={{ padding: '0 var(--space-3) var(--space-2)', textTransform: 'uppercase' }}
+                >
+                  {!sidebarCollapsed && category}
+                </Text>
 
-          <Sidebar.Item
-            icon={<EditIcon size={18} />}
-            active={currentPage === 'forms'}
-            onClick={() => setCurrentPage('forms')}
-          >
-            Formulários
-          </Sidebar.Item>
-
-          <Sidebar.Item
-            icon={<ActivityIcon size={18} />}
-            active={currentPage === 'feedback'}
-            onClick={() => setCurrentPage('feedback')}
-          >
-            Feedback
-          </Sidebar.Item>
-
-          <Sidebar.Item
-            icon={<ExternalLinkIcon size={18} />}
-            active={currentPage === 'overlays'}
-            onClick={() => setCurrentPage('overlays')}
-          >
-            Overlays
-          </Sidebar.Item>
-
-          <Sidebar.Item
-            icon={<LayoutIcon size={18} />}
-            active={currentPage === 'layout'}
-            onClick={() => setCurrentPage('layout')}
-          >
-            Layout
-          </Sidebar.Item>
-        </div>
+                {routes.map((route) => (
+                  <Sidebar.Item
+                    key={route.id}
+                    icon={<LayoutIcon size={16} />}
+                    active={currentPage === route.id}
+                    onClick={() => navigateTo(route.id)}
+                    style={{ paddingLeft: sidebarCollapsed ? 'var(--space-3)' : 'var(--space-4)' }}
+                  >
+                    {route.name}
+                  </Sidebar.Item>
+                ))}
+              </div>
+            );
+          })}
+        </Box>
 
         <Sidebar.Footer>
           <Sidebar.Item
             icon={theme === 'light' ? <MoonIcon size={18} /> : <SunIcon size={18} />}
             onClick={toggleTheme}
           >
-            {theme === 'light' ? 'Modo Escuro' : 'Modo Claro'}
+            {theme === 'light' ? 'Escuro' : 'Claro'}
           </Sidebar.Item>
         </Sidebar.Footer>
       </Sidebar>
 
-      <Container size="full">
-        {renderPage()}
-      </Container>
+      <Box style={{ flex: 1, overflowY: 'auto', padding: 'var(--space-8)' }}>
+        <Container size="xl">
+          {currentRoute ? <ComponentShowcasePage route={currentRoute} /> : <Dashboard />}
+        </Container>
+      </Box>
     </Flex>
-
-  )
+  );
 }
