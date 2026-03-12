@@ -39,8 +39,9 @@ html, body, #root {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .showcase-empty {
@@ -140,7 +141,7 @@ html, body, #root {
   position: relative;
   min-height: 320px;
   padding: 24px;
-  border: 1px solid #d9e0ea;
+  border: 1px solid var(--border-main);
   border-radius: 22px;
   background:
     radial-gradient(circle, rgba(148, 163, 184, 0.28) 1.1px, transparent 1.2px),
@@ -158,10 +159,10 @@ html, body, #root {
   top: 12px;
   left: 16px;
   padding: 6px 10px;
-  border: 1px solid rgba(203, 213, 225, 0.9);
+  border: 1px solid color-mix(in srgb, var(--border-main) 85%, transparent);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  color: #475569;
+  background: color-mix(in srgb, var(--bg-surface) 82%, transparent);
+  color: var(--text-subtle);
   font: 600 13px/1 system-ui, sans-serif;
   backdrop-filter: blur(10px);
 }
@@ -179,9 +180,9 @@ html, body, #root {
   place-items: center;
   width: 34px;
   height: 34px;
-  border: 1px solid #d8deea;
+  border: 1px solid var(--border-main);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.9);
+  background: color-mix(in srgb, var(--bg-surface) 90%, transparent);
   box-shadow: 0 6px 18px rgba(148, 163, 184, 0.12);
 }
 
@@ -233,8 +234,8 @@ html, body, #root {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  border: 1px solid #d2d7e1;
-  background: #eef2f7;
+  border: 1px solid var(--border-main);
+  background: color-mix(in srgb, var(--bg-surface-2) 88%, var(--bg-app));
  
 }
 
@@ -246,7 +247,7 @@ html, body, #root {
   resize: vertical;
   outline: none;
   background: transparent;
-  color: #0f172a;
+  color: var(--text-main);
   font: 400 13px/1.45 "Cascadia Code", "Fira Code", Consolas, monospace;
   tab-size: 2;
 }
@@ -265,10 +266,41 @@ html, body, #root {
   margin: 0;
   padding: 16px 10px 18px 12px;
   overflow: hidden;
-  color: #7c8798;
+  color: var(--text-muted);
   text-align: right;
   font: 12px/1.55 "Cascadia Code", "Fira Code", Consolas, monospace;
   user-select: none;
+}
+
+[data-theme='dark'] .live-preview-shell,
+.theme-dark .live-preview-shell {
+  border-color: color-mix(in srgb, var(--border-strong) 85%, transparent);
+  background:
+    radial-gradient(circle, rgba(71, 85, 105, 0.45) 1.1px, transparent 1.2px),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.96));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 18px 36px rgba(2, 6, 23, 0.42);
+}
+
+[data-theme='dark'] .live-preview-shell__label,
+.theme-dark .live-preview-shell__label {
+  border-color: color-mix(in srgb, var(--border-strong) 78%, transparent);
+  background: rgba(15, 23, 42, 0.76);
+  color: var(--text-subtle);
+}
+
+[data-theme='dark'] .live-preview-shell__control,
+.theme-dark .live-preview-shell__control {
+  border-color: color-mix(in srgb, var(--border-strong) 78%, transparent);
+  background: rgba(15, 23, 42, 0.82);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.3);
+}
+
+[data-theme='dark'] .live-terminal,
+.theme-dark .live-terminal {
+  border-color: color-mix(in srgb, var(--border-strong) 82%, transparent);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.94));
 }
 
 .live-terminal__copy {
@@ -352,6 +384,4 @@ html, body, #root {
     font-size: 13px;
   }
 }
-
-
 

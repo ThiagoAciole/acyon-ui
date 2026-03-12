@@ -1,7 +1,7 @@
 import { Badge, Box, Flex, Grid, Heading, Text } from '@aciole/labs';
 
-import { LivePlayground } from './LivePlayground';
-import type { ComponentRoute } from './componentRoutes';
+import { LivePlayground } from '../components/LivePlayground';
+import type { ComponentRoute } from '../data/componentRoutes';
 
 interface ComponentShowcasePageProps {
   route: ComponentRoute;

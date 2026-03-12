@@ -4,7 +4,7 @@ import * as Labs from '@aciole/labs';
 import ts from 'typescript';
 import { Box, Button, Card, CardBody, CardHeader, Code, Flex, IconButton, Text } from '@aciole/labs';
 import { Copy } from 'lucide-react';
-import type { ComponentRoute } from './componentRoutes';
+import type { ComponentRoute } from '../data/componentRoutes';
 
 interface LivePlaygroundProps {
   route: ComponentRoute;

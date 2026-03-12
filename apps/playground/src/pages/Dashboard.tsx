@@ -1,19 +1,19 @@
 import {
-  Heading,
-  Text,
+  ArrowRightIcon,
+  BookIcon,
+  Box,
   Card,
   CardBody,
+  ExternalLinkIcon,
   Flex,
-  Box,
-  Grid,
-  ZapIcon,
-  ShieldIcon,
-  LayoutIcon,
-  BookIcon,
-  ArrowRightIcon,
   GithubIcon,
-  ExternalLinkIcon
-} from '@aciole/labs'
+  Grid,
+  Heading,
+  LayoutIcon,
+  ShieldIcon,
+  Text,
+  ZapIcon
+} from '@aciole/labs';
 
 export function Dashboard() {
   return (

@@ -4,20 +4,22 @@ import {
   Box,
   Container,
   Flex,
-  Heading,
   HomeIcon,
   LayoutIcon,
-  MenuIcon,
   MoonIcon,
   Sidebar,
   SunIcon,
   Text,
-  useTheme,
+  TopBar,
+  useTheme
 } from '@aciole/labs';
 
+import icon from './assets/icon.svg';
+import logo from './assets/logo.svg';
+
+import { componentCategories, componentRoutes } from './data/componentRoutes';
 import { ComponentShowcasePage } from './pages/ComponentShowcasePage';
 import { Dashboard } from './pages/Dashboard';
-import { componentRoutes, componentCategories } from './pages/componentRoutes';
 
 const DASHBOARD_ROUTE = 'dashboard';
 
@@ -50,9 +52,10 @@ export function App() {
   return (
     <Flex style={{ height: '100vh', overflow: 'hidden' }}>
       <Sidebar collapsed={sidebarCollapsed} onToggle={setSidebarCollapsed}>
-        <Sidebar.Header icon={<MenuIcon size={18} />}>
-          <Heading size="xs">Labs Design</Heading>
-        </Sidebar.Header>
+        <Sidebar.Header
+          icon={<img src={icon} alt="LabsUI Icon" style={{ height: '24px' }} />}
+          logo={<img src={logo} alt="LabsUI Logo" style={{ height: '24px' }} />}
+        />
 
         <Box style={{ padding: 'var(--space-2)', overflowY: 'auto', flex: 1 }}>
           <Sidebar.Item
@@ -103,12 +106,12 @@ export function App() {
           </Sidebar.Item>
         </Sidebar.Footer>
       </Sidebar>
-
-      <Box style={{ flex: 1, overflowY: 'auto', padding: 'var(--space-8)' }}>
-        <Container size="xl">
+      <Flex direction="column" className="showcase-content">
+        <TopBar sticky themeToggle={true} />
+        <Container size="full">
           {currentRoute ? <ComponentShowcasePage route={currentRoute} /> : <Dashboard />}
         </Container>
-      </Box>
+      </Flex>
     </Flex>
   );
 }
