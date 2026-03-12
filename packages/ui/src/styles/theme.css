@@ -4,6 +4,9 @@
   --bg-surface:    #ffffff;
   --bg-surface-2:  var(--slate-100);
   --container: #F3F6FB;
+  --bg-inverse:    #0f172a;
+
+  --bg-skeleton: var(--slate-200);
   
   --text-main:     var(--slate-900);
   --text-subtle:   var(--slate-600);
@@ -41,6 +44,9 @@
   --bg-surface:    #0f172a; /* slate-900 */
   --bg-surface-2:  #1e293b; /* slate-800 */
   --container: #020617;
+  --bg-inverse:    #F3F6FB;
+
+  --bg-skeleton: var(--slate-800);
   
   --text-main:     #f1f5f9; /* slate-100 */
   --text-subtle:   #94a3b8; /* slate-400 */

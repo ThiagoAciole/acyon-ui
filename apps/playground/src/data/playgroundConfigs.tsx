@@ -147,6 +147,131 @@ function PaginationPreview(props: PaginationPlaygroundProps) {
   );
 }
 
+function SelectPreview(props: SelectPlaygroundProps) {
+  const [value, setValue] = React.useState(String(props.value ?? ''));
+
+  React.useEffect(() => {
+    setValue(String(props.value ?? ''));
+  }, [props.value]);
+
+  return (
+    <Labs.Select
+      label={String(props.label ?? '')}
+      value={value}
+      onChange={setValue}
+      placeholder={String(props.placeholder ?? '')}
+      disabled={Boolean(props.disabled)}
+      options={[
+        { label: 'Design', value: 'design' },
+        { label: 'Engineering', value: 'engineering' },
+        { label: 'Product', value: 'product' },
+      ]}
+      full
+    />
+  );
+}
+
+function CheckboxPreview(props: CheckboxPlaygroundProps) {
+  const [checked, setChecked] = React.useState(Boolean(props.checked));
+
+  React.useEffect(() => {
+    setChecked(Boolean(props.checked));
+  }, [props.checked]);
+
+  return <Labs.Checkbox label={String(props.label ?? '')} checked={checked} disabled={Boolean(props.disabled)} onChange={(event) => setChecked(event.target.checked)} />;
+}
+
+function RadioPreview(props: RadioPlaygroundProps) {
+  const [checked, setChecked] = React.useState(Boolean(props.checked));
+
+  React.useEffect(() => {
+    setChecked(Boolean(props.checked));
+  }, [props.checked]);
+
+  return <Labs.Radio name="preview-radio" label={String(props.label ?? '')} checked={checked} disabled={Boolean(props.disabled)} onChange={() => setChecked(true)} />;
+}
+
+function SwitchPreview(props: SwitchPlaygroundProps) {
+  const [checked, setChecked] = React.useState(Boolean(props.checked));
+
+  React.useEffect(() => {
+    setChecked(Boolean(props.checked));
+  }, [props.checked]);
+
+  return <Labs.Switch label={String(props.label ?? '')} checked={checked} disabled={Boolean(props.disabled)} size={props.size} onChange={(event) => setChecked(event.target.checked)} />;
+}
+
+function MultiSelectPreview(props: MultiSelectPlaygroundProps) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const selection = props.selection === 'none' ? [] : props.selection === 'react' ? ['react'] : ['react', 'vue'];
+  const [value, setValue] = React.useState<string[]>(selection);
+
+  React.useEffect(() => {
+    setValue(selection);
+  }, [props.selection, selection]);
+
+  return (
+    <Labs.MultiSelect
+      label={props.label}
+      placeholder={props.placeholder}
+      disabled={Boolean(props.disabled)}
+      value={value}
+      onChange={setValue}
+      options={[
+        { label: 'React', value: 'react' },
+        { label: 'Vue', value: 'vue' },
+        { label: 'Svelte', value: 'svelte' },
+      ]}
+    />
+  );
+}
+
+function SliderPreview(props: SliderPlaygroundProps) {
+  const [value, setValue] = React.useState(Number(props.value));
+
+  React.useEffect(() => {
+    setValue(Number(props.value));
+  }, [props.value]);
+
+  return (
+    <Labs.Slider
+      label={props.label}
+      supportText={props.supportText}
+      min={Number(props.min)}
+      max={Number(props.max)}
+      value={value}
+      onChange={(event) => setValue(Number(event.target.value))}
+    />
+  );
+}
+
+function DatePickerPreview(props: DatePickerPlaygroundProps) {
+  const [value, setValue] = React.useState(props.value);
+
+  React.useEffect(() => {
+    setValue(props.value);
+  }, [props.value]);
+
+  return (
+    <Labs.DatePicker
+      label={props.label}
+      placeholder={props.placeholder}
+      supportText={props.supportText}
+      disabled={props.disabled}
+      value={value}
+      onChange={(event) => setValue(event.target.value)}
+    />
+  );
+}
+
+function normalizeDimension(value: string) {
+  if (/^\d+$/.test(value.trim())) {
+    return `${value.trim()}px`;
+  }
+
+  return value;
+}
+
 function renderPrimitive(value: unknown) {
   if (typeof value === 'string') {
     return JSON.stringify(value);
@@ -413,7 +538,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       { type: 'text', name: 'placeholder', label: 'Placeholder', placeholder: 'Escolha uma area' },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
-    render: (props: SelectPlaygroundProps) => <Labs.Select label={String(props.label ?? '')} value={String(props.value ?? '')} onChange={() => { }} placeholder={String(props.placeholder ?? '')} disabled={Boolean(props.disabled)} options={[{ label: 'Design', value: 'design' }, { label: 'Engineering', value: 'engineering' }, { label: 'Product', value: 'product' }]} full />,
+    render: (props: SelectPlaygroundProps) => <SelectPreview {...props} />,
     generateCode: (props) => wrapSnippet(['Select'], [
       'return (',
       '  <Select',
@@ -438,7 +563,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       { type: 'boolean', name: 'checked', label: 'Checked' },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
-    render: (props: CheckboxPlaygroundProps) => <Labs.Checkbox label={String(props.label ?? '')} checked={Boolean(props.checked)} disabled={Boolean(props.disabled)} readOnly />,
+    render: (props: CheckboxPlaygroundProps) => <CheckboxPreview {...props} />,
     generateCode: (props) => wrapSnippet(['Checkbox'], [
       'return (',
       `  ${buildOpeningTag('Checkbox', props as Record<string, unknown>)} />`,
@@ -453,7 +578,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       { type: 'boolean', name: 'checked', label: 'Checked' },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
-    render: (props: RadioPlaygroundProps) => <Labs.Radio name="preview-radio" label={String(props.label ?? '')} checked={Boolean(props.checked)} disabled={Boolean(props.disabled)} readOnly />,
+    render: (props: RadioPlaygroundProps) => <RadioPreview {...props} />,
     generateCode: (props) => wrapSnippet(['Radio'], [
       'return (',
       `  ${buildOpeningTag('Radio', { ...props, name: 'preview-radio' } as Record<string, unknown>)} />`,
@@ -469,7 +594,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       { type: 'boolean', name: 'checked', label: 'Checked' },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
-    render: (props: SwitchPlaygroundProps) => <Labs.Switch label={String(props.label ?? '')} checked={Boolean(props.checked)} disabled={Boolean(props.disabled)} size={props.size} readOnly />,
+    render: (props: SwitchPlaygroundProps) => <SwitchPreview {...props} />,
     generateCode: (props) => wrapSnippet(['Switch'], [
       'return (',
       `  ${buildOpeningTag('Switch', props as Record<string, unknown>)} />`,
@@ -539,17 +664,32 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<LoaderPlaygroundProps>,
   skeleton: {
     imports: ['Skeleton'],
-    initialProps: { width: '100%', height: '16', circle: false, animated: true },
+    initialProps: { width: '100%', height: '50px', circle: false, animated: true },
     controls: [
       { type: 'text', name: 'width', label: 'Width', placeholder: '100%' },
-      { type: 'text', name: 'height', label: 'Height', placeholder: '16' },
+      { type: 'text', name: 'height', label: 'Height', placeholder: '50' },
       { type: 'boolean', name: 'circle', label: 'Circle' },
       { type: 'boolean', name: 'animated', label: 'Animated' },
     ],
-    render: (props: SkeletonPlaygroundProps) => <Labs.Skeleton width={props.width} height={props.circle ? props.width : props.height} circle={Boolean(props.circle)} animated={Boolean(props.animated)} />,
+    render: (props: SkeletonPlaygroundProps) => (
+      <div style={{ width: 320, padding: '8px 0', display: 'flex', gap: '8px' }}>
+        <Labs.Skeleton
+          width={normalizeDimension(props.width)}
+          height={props.circle ? normalizeDimension(props.width) : normalizeDimension(props.height)}
+          circle={Boolean(props.circle)}
+          animated={Boolean(props.animated)}
+        />
+        <Labs.Skeleton
+          width={normalizeDimension(props.width)}
+          height={props.circle ? normalizeDimension(props.width) : normalizeDimension(props.height)}
+          circle={Boolean(props.circle)}
+          animated={Boolean(props.animated)}
+        />
+      </div>
+    ),
     generateCode: (props) => wrapSnippet(['Skeleton'], [
       'return (',
-      `  ${buildOpeningTag('Skeleton', { width: props.width, height: props.circle ? undefined : props.height, circle: props.circle, animated: props.animated })} />`,
+      `  ${buildOpeningTag('Skeleton', { width: normalizeDimension(props.width), height: props.circle ? undefined : normalizeDimension(props.height), circle: props.circle, animated: props.animated })} />`,
       ');',
     ]),
   } satisfies PlaygroundConfig<SkeletonPlaygroundProps>,
@@ -692,19 +832,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       { type: 'select', name: 'selection', label: 'Selection', options: [{ label: 'None', value: 'none' }, { label: 'React', value: 'react' }, { label: 'React + Vue', value: 'react-vue' }] },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
-    render: (props: MultiSelectPlaygroundProps) => (
-      <Labs.MultiSelect
-        label={props.label}
-        placeholder={props.placeholder}
-        disabled={Boolean(props.disabled)}
-        value={props.selection === 'none' ? [] : props.selection === 'react' ? ['react'] : ['react', 'vue']}
-        options={[
-          { label: 'React', value: 'react' },
-          { label: 'Vue', value: 'vue' },
-          { label: 'Svelte', value: 'svelte' },
-        ]}
-      />
-    ),
+    render: (props: MultiSelectPlaygroundProps) => <MultiSelectPreview {...props} />,
     generateCode: (props) => wrapSnippet(['MultiSelect'], [
       'return (',
       '  <MultiSelect',
@@ -731,7 +859,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       { type: 'text', name: 'max', label: 'Max', placeholder: '100' },
       { type: 'text', name: 'value', label: 'Value', placeholder: '40' },
     ],
-    render: (props: SliderPlaygroundProps) => <Labs.Slider label={props.label} supportText={props.supportText} min={Number(props.min)} max={Number(props.max)} value={Number(props.value)} onChange={() => {}} />,
+    render: (props: SliderPlaygroundProps) => <SliderPreview {...props} />,
     generateCode: (props) => wrapSnippet(['Slider'], [
       'return (',
       `  ${buildOpeningTag('Slider', { label: props.label, supportText: props.supportText, min: Number(props.min), max: Number(props.max), value: Number(props.value) })} />`,
@@ -1074,7 +1202,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       { type: 'text', name: 'value', label: 'Value (ISO)', placeholder: '2026-03-12' },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
-    render: (props: DatePickerPlaygroundProps) => <Labs.DatePicker label={props.label} placeholder={props.placeholder} supportText={props.supportText} disabled={props.disabled} value={props.value} onChange={() => {}} />,
+    render: (props: DatePickerPlaygroundProps) => <DatePickerPreview {...props} />,
     generateCode: (props) => wrapSnippet(['DatePicker'], [
       'return (',
       `  ${buildOpeningTag('DatePicker', { label: props.label, placeholder: props.placeholder, supportText: props.supportText, value: props.value, disabled: props.disabled })} />`,

@@ -1,13 +1,14 @@
 .tooltip {
   position: absolute;
   z-index: 1100;
-  background: var(--bg-inverse);
+  background: color-mix(in srgb, var(--bg-inverse), black 8%);
   color: var(--text-inverse);
   font-size: var(--font-size-xs);
   font-family: var(--font-family);
   padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-md);
+  border: 1px solid color-mix(in srgb, var(--text-inverse), transparent 88%);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   pointer-events: none;
   white-space: nowrap;
   max-width: 16rem;

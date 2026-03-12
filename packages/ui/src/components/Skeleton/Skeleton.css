@@ -1,7 +1,7 @@
 .skeleton {
   position: relative;
   overflow: hidden;
-  background-color: var(--bg-surface-2);
+  background-color: var(--bg-skeleton);
   border-radius: var(--radius-sm);
 }
 
@@ -11,7 +11,7 @@
 }
 
 .skeleton--circular {
-  border-radius: var(--radius-full);
+  border-radius: 50%;
 }
 
 .skeleton--rectangular {
@@ -26,19 +26,14 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.28),
+    color-mix(in srgb, var(--bg-skeleton), white 10%),
     transparent
   );
   animation: skeleton-shimmer 1.5s infinite;
 }
 
 [data-theme='light'] .skeleton--animated::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--bg-skeleton), rgb(179, 178, 187) 10%), transparent);
 }
 
 @keyframes skeleton-shimmer {
