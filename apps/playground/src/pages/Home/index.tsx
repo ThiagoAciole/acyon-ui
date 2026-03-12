@@ -235,15 +235,15 @@ function InstallationPage() {
           title="Configure os providers"
           description={
             <>
-              Envolva a aplicacao com <Code>ThemeProvider</Code> e <Code>ToastProvider</Code> para habilitar tema e feedback global.
+              Envolva a aplicacao com <Code>ThemeProvider</Code>. Ele ja inclui a camada de toast por padrao.
             </>
           }
-          code={`import { ThemeProvider, ToastProvider } from 'acyon';
+          code={`import { ThemeProvider } from 'acyon';
 
 function AppProviders({ children }) {
   return (
     <ThemeProvider defaultTheme="light">
-      <ToastProvider>{children}</ToastProvider>
+      {children}
     </ThemeProvider>
   );
 }`}
@@ -298,7 +298,7 @@ export function Example() {
           </Accordion.Item>
           <Accordion.Item title="Centralize providers na raiz da aplicacao.">
 
-            Envolva a aplicacao com <Code>ThemeProvider</Code> e <Code>ToastProvider</Code> para habilitar tema e feedback global.
+            Envolva a aplicacao com <Code>ThemeProvider</Code> na raiz. Ele ja compoe tema e toast global em um unico ponto.
 
           </Accordion.Item>
           <Accordion.Item title="Prefira variacoes declarativas a overrides locais repetidos.">

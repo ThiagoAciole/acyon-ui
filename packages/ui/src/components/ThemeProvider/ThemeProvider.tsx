@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import type { Theme, ThemeContextValue, ThemeProviderProps } from './types';
+import { ToastProvider } from '../Toast/Toast';
 
 export type { Theme, ThemeContextValue, ThemeProviderProps } from './types';
 
@@ -16,7 +17,9 @@ export const useTheme = () => {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     children,
     defaultTheme = 'dark',
-    storageKey = 'theme'
+    storageKey = 'theme',
+    toastPosition,
+    toastMaxToasts
 }) => {
     const [theme, setThemeState] = useState<Theme>(() => {
         return (localStorage.getItem(storageKey) as Theme) || defaultTheme;
@@ -40,7 +43,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
-            {children}
+            <ToastProvider position={toastPosition} maxToasts={toastMaxToasts}>
+                {children}
+            </ToastProvider>
         </ThemeContext.Provider>
     );
 };
