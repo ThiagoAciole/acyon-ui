@@ -264,12 +264,26 @@ function DatePickerPreview(props: DatePickerPlaygroundProps) {
   );
 }
 
-function normalizeDimension(value: string) {
-  if (/^\d+$/.test(value.trim())) {
-    return `${value.trim()}px`;
+function normalizeDimension(value: unknown) {
+  if (typeof value === 'number') {
+    return `${value}px`;
   }
 
-  return value;
+  if (typeof value !== 'string') {
+    return '';
+  }
+
+  const normalizedValue = value.trim();
+
+  if (normalizedValue === '') {
+    return '';
+  }
+
+  if (/^\d+$/.test(normalizedValue)) {
+    return `${normalizedValue}px`;
+  }
+
+  return normalizedValue;
 }
 
 function renderPrimitive(value: unknown) {
