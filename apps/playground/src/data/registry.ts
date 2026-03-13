@@ -5,8 +5,8 @@ import { formsMeta, formsPlaygrounds } from './forms';
 import { layoutMeta, layoutPlaygrounds } from './layout';
 import { navigationMeta, navigationPlaygrounds } from './navigation';
 import { overlayMeta, overlayPlaygrounds } from './overlay';
-import { typographyMeta, typographyPlaygrounds } from './typography';
 import type { Category, ComponentMeta, PlaygroundConfigMap } from './types';
+import { typographyMeta, typographyPlaygrounds } from './typography';
 
 const orderedMetaByCategory: Record<Category, ComponentMeta[]> = {
   typography: typographyMeta,
@@ -18,7 +18,9 @@ const orderedMetaByCategory: Record<Category, ComponentMeta[]> = {
   layout: layoutMeta,
 };
 
-export const componentRoutes: ComponentMeta[] = componentCategories.flatMap((category) => orderedMetaByCategory[category]);
+export const componentRoutes: ComponentMeta[] = componentCategories.flatMap(
+  (category) => orderedMetaByCategory[category]
+);
 
 export const playgroundConfigs: PlaygroundConfigMap = {
   ...typographyPlaygrounds,
@@ -30,7 +32,10 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   ...layoutPlaygrounds,
 };
 
-export const componentRegistry = componentRoutes.reduce<Record<string, ComponentMeta>>((accumulator, component) => {
-  accumulator[component.id] = component;
-  return accumulator;
-}, {});
+export const componentRegistry = componentRoutes.reduce<Record<string, ComponentMeta>>(
+  (accumulator, component) => {
+    accumulator[component.id] = component;
+    return accumulator;
+  },
+  {}
+);

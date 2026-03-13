@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as Labs from '@aciole/acyon';
 import * as React from 'react';
 import type { PlaygroundConfig } from './types';

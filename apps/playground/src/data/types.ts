@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { IconName } from '@aciole/acyon';
 import type * as React from 'react';
 
@@ -25,29 +26,36 @@ export type ControlOption = {
 
 export type PlaygroundControl =
   | {
-    type: 'text' | 'textarea';
-    name: string;
-    label: string;
-    placeholder?: string;
-  }
+      type: 'text' | 'textarea';
+      name: string;
+      label: string;
+      placeholder?: string;
+    }
   | {
-    type: 'boolean';
-    name: string;
-    label: string;
-  }
+      type: 'boolean';
+      name: string;
+      label: string;
+    }
   | {
-    type: 'select';
-    name: string;
-    label: string;
-    options: ControlOption[];
-  };
+      type: 'select';
+      name: string;
+      label: string;
+      options: ControlOption[];
+    };
 
-export interface PlaygroundConfig<TProps extends Record<string, unknown> = Record<string, unknown>> {
+export interface PlaygroundConfig<
+  TProps extends Record<string, unknown> = Record<string, unknown>,
+> {
   imports: string[] | ((props: TProps) => string[]);
   initialProps: TProps;
   controls: PlaygroundControl[];
   render: { bivarianceHack(props: TProps): React.ReactNode }['bivarianceHack'];
   generateCode: { bivarianceHack(props: TProps): string }['bivarianceHack'];
 }
+
+export type ComponentDefinition<TProps extends Record<string, unknown> = Record<string, unknown>> =
+  ComponentMeta & PlaygroundConfig<TProps>;
+
+export type ComponentDefinitionMap = Partial<Record<ComponentMeta['id'], ComponentDefinition<any>>>;
 
 export type PlaygroundConfigMap = Partial<Record<ComponentMeta['id'], PlaygroundConfig<any>>>;
