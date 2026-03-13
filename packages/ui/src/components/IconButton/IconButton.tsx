@@ -8,7 +8,7 @@ import type { IconButtonProps } from './types';
 export type { IconButtonProps, IconButtonSize, IconButtonVariant } from './types';
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-    ({ icon, variant = 'solid', size = 'md', loading = false, disabled, className, style, label, ...props }, ref) => {
+    ({ icon, variant = 'solid', size = 'medium', loading = false, disabled, className, style, label, ...props }, ref) => {
         return (
             <Button
                 ref={ref}

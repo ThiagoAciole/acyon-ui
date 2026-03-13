@@ -9,7 +9,7 @@ import type { InputProps } from './types';
 export type { InputProps, InputSize } from './types';
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ label, error, hint, prefix, suffix, clearable = false, size = 'md', full = false, className, id, ...props }, ref) => {
+    ({ label, error, hint, prefix, suffix, clearable = false, size = 'medium', full = false, className, id, ...props }, ref) => {
         const inputId = id ?? (label ? `input-${LabelFormater(label)}` : undefined);
         const inputRef = React.useRef<HTMLInputElement | null>(null);
         const [, forceRender] = React.useState(0);
@@ -55,7 +55,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 icon={<Icon name="close" size={12} />}
                 aria-label="Limpar campo"
                 variant="ghost"
-                size="sm"
+                size="small"
                 onClick={handleClear}
                 tabIndex={-1}
                 className="input-field__clear"

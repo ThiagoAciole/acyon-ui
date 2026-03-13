@@ -22,20 +22,20 @@
   text-transform: uppercase;
 }
 
-.avatar--xs { width: 24px; height: 24px; }
-.avatar--xs .avatar-initials { font-size: 10px; }
+.avatar--extraSmall { width: 24px; height: 24px; }
+.avatar--extraSmall .avatar-initials { font-size: 10px; }
 
-.avatar--sm { width: 32px; height: 32px; }
-.avatar--sm .avatar-initials { font-size: 12px; }
+.avatar--small { width: 32px; height: 32px; }
+.avatar--small .avatar-initials { font-size: 12px; }
 
-.avatar--md { width: 40px; height: 40px; }
-.avatar--md .avatar-initials { font-size: 14px; }
+.avatar--medium { width: 40px; height: 40px; }
+.avatar--medium .avatar-initials { font-size: 14px; }
 
-.avatar--lg { width: 56px; height: 56px; }
-.avatar--lg .avatar-initials { font-size: 20px; }
+.avatar--large { width: 56px; height: 56px; }
+.avatar--large .avatar-initials { font-size: 20px; }
 
-.avatar--xl { width: 80px; height: 80px; }
-.avatar--xl .avatar-initials { font-size: 28px; }
+.avatar--extraLarge { width: 80px; height: 80px; }
+.avatar--extraLarge .avatar-initials { font-size: 28px; }
 
 .avatar-status {
   position: absolute;

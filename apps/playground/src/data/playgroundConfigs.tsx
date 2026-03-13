@@ -54,9 +54,9 @@ type ProgressPlaygroundProps = Pick<Labs.ProgressProps, 'value' | 'size' | 'anim
 type PaginationPlaygroundProps = { currentPage: string; totalPages: string; showControls: boolean };
 type TabsPlaygroundProps = Pick<Labs.TabsProps, 'variant' | 'size'> & { defaultValue: 'overview' | 'specs' | 'usage' };
 type TooltipPlaygroundProps = { content: string; placement: 'top' | 'bottom' | 'left' | 'right'; buttonLabel: string };
-type ModalPlaygroundProps = { title: string; description: string; body: string; confirmLabel: string; size: 'sm' | 'md' | 'lg' | 'xl'; closeOnOverlayClick: boolean };
-type DrawerPlaygroundProps = { title: string; body: string; confirmLabel: string; size: 'sm' | 'md' | 'lg' | 'full'; placement: 'left' | 'right'; closeOnOverlayClick: boolean };
-type CodePlaygroundProps = { children: string; size: 'sm' | 'md' | 'lg'; weight: 'normal' | 'medium' | 'semibold' | 'bold'; block: boolean };
+type ModalPlaygroundProps = { title: string; description: string; body: string; confirmLabel: string; size: 'small' | 'medium' | 'large' | 'extraLarge'; closeOnOverlayClick: boolean };
+type DrawerPlaygroundProps = { title: string; body: string; confirmLabel: string; size: 'small' | 'medium' | 'large' | 'full'; placement: 'left' | 'right'; closeOnOverlayClick: boolean };
+type CodePlaygroundProps = { children: string; size: 'small' | 'medium' | 'large'; weight: 'normal' | 'medium' | 'semibold' | 'bold'; block: boolean };
 type FileUploadPlaygroundProps = { title: string; description: string; multiple: boolean; disabled: boolean };
 type MultiSelectPlaygroundProps = { label: string; placeholder: string; disabled: boolean; selection: 'none' | 'react' | 'react-vue' };
 type SliderPlaygroundProps = { label: string; supportText: string; min: string; max: string; value: string };
@@ -69,8 +69,9 @@ type TimelinePlaygroundProps = { firstTitle: string; secondTitle: string; thirdT
 type BreadcrumbPlaygroundProps = { separator: '/' | '>' | '-'; currentLabel: string };
 type TopBarPlaygroundProps = { navPosition: 'center' | 'right'; themeToggle: boolean; sticky: boolean; contentInside: boolean };
 type BoxPlaygroundProps = { padding: '0' | '2' | '4' | '6'; rounded: 'none' | 'sm' | 'md' | 'lg' | 'xl'; shadow: 'none' | 'sm' | 'md' | 'lg'; surface: 'default' | 'subtle' | 'inverse'; border: boolean; children: string };
-type ContainerPlaygroundProps = { size: 'sm' | 'md' | 'lg' | 'xl' | 'full'; children: string };
+type ContainerPlaygroundProps = { size: 'small' | 'medium' | 'large' | 'extraLarge' | 'full'; children: string };
 type DividerPlaygroundProps = { orientation: 'horizontal' | 'vertical'; label: string };
+type DropdownPlaygroundProps = { label: string; placement: 'bottom-start' | 'bottom-end' | 'top-start' | 'top-end'; matchTriggerWidth: boolean; disabled: boolean };
 type FlexPlaygroundProps = { direction: 'row' | 'column'; align: 'flex-start' | 'center' | 'flex-end' | 'stretch'; justify: 'flex-start' | 'center' | 'flex-end' | 'space-between'; gap: '0' | '2' | '4' | '6' };
 type GridPlaygroundProps = { columns: '1' | '2' | '3' | '4'; gap: '2' | '4' | '6' };
 type PageHeaderPlaygroundProps = { title: string; description: string; showBack: boolean };
@@ -345,7 +346,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       <Labs.Alert
         variant={props.variant}
         title={props.title}
-        action={props.actionLabel ? <Labs.Button size="sm" variant="ghost" color={props.variant}>{props.actionLabel}</Labs.Button> : undefined}
+        action={props.actionLabel ? <Labs.Button size="small" variant="ghost" color={props.variant}>{props.actionLabel}</Labs.Button> : undefined}
       >
         {props.content}
       </Labs.Alert>
@@ -355,7 +356,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       '  <Alert',
       `    variant="${props.variant}"`,
       `    title="${props.title}"`,
-      props.actionLabel ? `    action={<Button size="sm" variant="ghost" color="${props.variant}">${props.actionLabel}</Button>}` : undefined,
+      props.actionLabel ? `    action={<Button size="small" variant="ghost" color="${props.variant}">${props.actionLabel}</Button>}` : undefined,
       '  >',
       `    ${props.content}`,
       '  </Alert>',
@@ -367,17 +368,17 @@ export const playgroundConfigs: PlaygroundConfigMap = {
     initialProps: {
       name: 'Thiago Aciole',
       src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop',
-      size: 'md',
+      size: 'medium',
       status: 'online',
     },
     controls: [
       {
         type: 'select', name: 'size', label: 'Size', options: [
-          { label: 'Extra Small', value: 'xs' },
-          { label: 'Small', value: 'sm' },
-          { label: 'Medium', value: 'md' },
-          { label: 'Large', value: 'lg' },
-          { label: 'Extra Large', value: 'xl' },
+          { label: 'ExtraSmall', value: 'extraSmall' },
+          { label: 'Small', value: 'small' },
+          { label: 'Medium', value: 'medium' },
+          { label: 'Large', value: 'large' },
+          { label: 'ExtraLarge', value: 'extraLarge' },
         ]
       },
       {
@@ -400,7 +401,7 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<AvatarPlaygroundProps>,
   button: {
     imports: ['Button'],
-    initialProps: { variant: 'solid', color: 'primary', size: 'md', full: false, loading: false, children: 'Click me' },
+    initialProps: { variant: 'solid', color: 'primary', size: 'medium', full: false, loading: false, children: 'Click me' },
     controls: [
       {
         type: 'select', name: 'variant', label: 'Variant', options: [
@@ -421,11 +422,11 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       },
       {
         type: 'select', name: 'size', label: 'Size', options: [
-          { label: 'XS', value: 'xs' },
-          { label: 'SM', value: 'sm' },
-          { label: 'MD', value: 'md' },
-          { label: 'LG', value: 'lg' },
-          { label: 'XL', value: 'xl' },
+          { label: 'ExtraSmall', value: 'extraSmall' },
+          { label: 'Small', value: 'small' },
+          { label: 'Medium', value: 'medium' },
+          { label: 'Large', value: 'large' },
+          { label: 'ExtraLarge', value: 'extraLarge' },
         ]
       },
       { type: 'text', name: 'children', label: 'Label', placeholder: 'Click me' },
@@ -443,11 +444,11 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<ButtonPlaygroundProps>,
   badge: {
     imports: ['Badge'],
-    initialProps: { variant: 'soft', color: 'primary', size: 'md', children: 'Beta' },
+    initialProps: { variant: 'soft', color: 'primary', size: 'medium', children: 'Beta' },
     controls: [
       { type: 'select', name: 'variant', label: 'Variant', options: [{ label: 'Soft', value: 'soft' }, { label: 'Solid', value: 'solid' }, { label: 'Outline', value: 'outline' }] },
       { type: 'select', name: 'color', label: 'Color', options: [{ label: 'Primary', value: 'primary' }, { label: 'Neutral', value: 'neutral' }, { label: 'Success', value: 'success' }, { label: 'Warning', value: 'warning' }, { label: 'Error', value: 'error' }] },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'sm' }, { label: 'Medium', value: 'md' }, { label: 'Large', value: 'lg' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }] },
       { type: 'text', name: 'children', label: 'Text', placeholder: 'Beta' },
     ],
     render: (props: BadgePlaygroundProps) => <Labs.Badge variant={props.variant} color={props.color} size={props.size}>{String(props.children ?? '')}</Labs.Badge>,
@@ -459,11 +460,11 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<BadgePlaygroundProps>,
   tag: {
     imports: ['Tag'],
-    initialProps: { variant: 'soft', color: 'primary', size: 'md', children: 'Design System', closable: false },
+    initialProps: { variant: 'soft', color: 'primary', size: 'medium', children: 'Design System', closable: false },
     controls: [
       { type: 'select', name: 'variant', label: 'Variant', options: [{ label: 'Soft', value: 'soft' }, { label: 'Outline', value: 'outline' }] },
       { type: 'select', name: 'color', label: 'Color', options: [{ label: 'Primary', value: 'primary' }, { label: 'Neutral', value: 'neutral' }, { label: 'Success', value: 'success' }, { label: 'Warning', value: 'warning' }, { label: 'Error', value: 'error' }] },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'XS', value: 'xs' }, { label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }, { label: 'XL', value: 'xl' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'ExtraSmall', value: 'extraSmall' }, { label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }, { label: 'ExtraLarge', value: 'extraLarge' }] },
       { type: 'text', name: 'children', label: 'Text', placeholder: 'Design System' },
       { type: 'boolean', name: 'closable', label: 'Closable' },
     ],
@@ -476,9 +477,9 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<TagPlaygroundProps>,
   text: {
     imports: ['Text'],
-    initialProps: { size: 'md', color: 'default', weight: 'normal', children: 'Texto de exemplo para o playground.' },
+    initialProps: { size: 'medium', color: 'default', weight: 'normal', children: 'Texto de exemplo para o playground.' },
     controls: [
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'XS', value: 'xs' }, { label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }, { label: 'XL', value: 'xl' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'ExtraSmall', value: 'extraSmall' }, { label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }, { label: 'ExtraLarge', value: 'extraLarge' }] },
       { type: 'select', name: 'color', label: 'Color', options: [{ label: 'Default', value: 'default' }, { label: 'Neutral', value: 'neutral' }, { label: 'Inverse', value: 'inverse' }, { label: 'Primary', value: 'primary' }, { label: 'Success', value: 'success' }, { label: 'Warning', value: 'warning' }, { label: 'Error', value: 'error' }] },
       { type: 'select', name: 'weight', label: 'Weight', options: [{ label: 'Normal', value: 'normal' }, { label: 'Medium', value: 'medium' }, { label: 'Semibold', value: 'semibold' }, { label: 'Bold', value: 'bold' }] },
       { type: 'textarea', name: 'children', label: 'Content', placeholder: 'Texto de exemplo' },
@@ -528,12 +529,12 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<LinkPlaygroundProps>,
   input: {
     imports: ['Input'],
-    initialProps: { label: 'Nome', placeholder: 'Digite aqui', size: 'md', disabled: false, hint: 'Campo de exemplo' },
+    initialProps: { label: 'Nome', placeholder: 'Digite aqui', size: 'medium', disabled: false, hint: 'Campo de exemplo' },
     controls: [
       { type: 'text', name: 'label', label: 'Label', placeholder: 'Nome' },
       { type: 'text', name: 'placeholder', label: 'Placeholder', placeholder: 'Digite aqui' },
       { type: 'text', name: 'hint', label: 'Hint', placeholder: 'Campo de exemplo' },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }] },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
     render: (props: InputPlaygroundProps) => <Labs.Input label={String(props.label ?? '')} placeholder={String(props.placeholder ?? '')} hint={String(props.hint ?? '')} size={props.size} disabled={Boolean(props.disabled)} full />,
@@ -632,10 +633,10 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<RadioPlaygroundProps>,
   switch: {
     imports: ['Switch'],
-    initialProps: { label: 'Ativar notificacoes', checked: true, disabled: false, size: 'md' },
+    initialProps: { label: 'Ativar notificacoes', checked: true, disabled: false, size: 'medium' },
     controls: [
       { type: 'text', name: 'label', label: 'Label', placeholder: 'Ativar notificacoes' },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }] },
       { type: 'boolean', name: 'checked', label: 'Checked' },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
@@ -648,11 +649,11 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<SwitchPlaygroundProps>,
   'icon-button': {
     imports: ['IconButton', 'UploadIcon'],
-    initialProps: { variant: 'solid', color: 'primary', size: 'md', disabled: false, label: 'Enviar' },
+    initialProps: { variant: 'solid', color: 'primary', size: 'medium', disabled: false, label: 'Enviar' },
     controls: [
       { type: 'select', name: 'variant', label: 'Variant', options: [{ label: 'Solid', value: 'solid' }, { label: 'Soft', value: 'soft' }, { label: 'Ghost', value: 'ghost' }, { label: 'Outline', value: 'outline' }] },
       { type: 'select', name: 'color', label: 'Color', options: [{ label: 'Primary', value: 'primary' }, { label: 'Neutral', value: 'neutral' }, { label: 'Success', value: 'success' }, { label: 'Warning', value: 'warning' }, { label: 'Error', value: 'error' }] },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }] },
       { type: 'text', name: 'label', label: 'Label', placeholder: 'Enviar' },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
@@ -694,9 +695,9 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<EmptyStatePlaygroundProps>,
   loader: {
     imports: ['Loader'],
-    initialProps: { size: 'md', color: 'primary', label: 'Carregando dados' },
+    initialProps: { size: 'medium', color: 'primary', label: 'Carregando dados' },
     controls: [
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'XS', value: 'xs' }, { label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'ExtraSmall', value: 'extraSmall' }, { label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }] },
       { type: 'select', name: 'color', label: 'Color', options: [{ label: 'Primary', value: 'primary' }, { label: 'Neutral', value: 'neutral' }, { label: 'Success', value: 'success' }, { label: 'Warning', value: 'warning' }, { label: 'Error', value: 'error' }] },
       { type: 'text', name: 'label', label: 'Label', placeholder: 'Carregando dados' },
     ],
@@ -740,10 +741,10 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<SkeletonPlaygroundProps>,
   progress: {
     imports: ['Progress'],
-    initialProps: { value: 64, size: 'md', animated: false, showValue: true, label: 'Progresso', color: 'primary' },
+    initialProps: { value: 64, size: 'medium', animated: false, showValue: true, label: 'Progresso', color: 'primary' },
     controls: [
       { type: 'text', name: 'value', label: 'Value', placeholder: '64' },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }] },
       { type: 'select', name: 'color', label: 'Color', options: [{ label: 'Primary', value: 'primary' }, { label: 'Neutral', value: 'neutral' }, { label: 'Success', value: 'success' }, { label: 'Warning', value: 'warning' }, { label: 'Error', value: 'error' }] },
       { type: 'text', name: 'label', label: 'Label', placeholder: 'Progresso' },
       { type: 'boolean', name: 'animated', label: 'Animated' },
@@ -769,10 +770,10 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<PaginationPlaygroundProps>,
   tabs: {
     imports: ['Tabs'],
-    initialProps: { variant: 'default', size: 'md', defaultValue: 'overview' },
+    initialProps: { variant: 'default', size: 'medium', defaultValue: 'overview' },
     controls: [
       { type: 'select', name: 'variant', label: 'Variant', options: [{ label: 'Default', value: 'default' }, { label: 'Pills', value: 'pills' }] },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }] },
       { type: 'select', name: 'defaultValue', label: 'Default tab', options: [{ label: 'Overview', value: 'overview' }, { label: 'Specs', value: 'specs' }, { label: 'Usage', value: 'usage' }] },
     ],
     render: (props: TabsPlaygroundProps) => <Labs.Tabs variant={props.variant} size={props.size} defaultValue={props.defaultValue} tabs={[{ value: 'overview', label: 'Overview', content: 'Visao geral' }, { value: 'specs', label: 'Specs', content: 'Especificacoes' }, { value: 'usage', label: 'Usage', content: 'Guia rapido' }]} />,
@@ -810,13 +811,13 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<TooltipPlaygroundProps>,
   modal: {
     imports: ['Button', 'Modal', 'Text', 'Flex'],
-    initialProps: { title: 'Confirmar acao', description: 'Revise os detalhes antes de continuar.', body: 'Este modal usa o componente real da biblioteca.', confirmLabel: 'Confirmar', size: 'md', closeOnOverlayClick: true },
+    initialProps: { title: 'Confirmar acao', description: 'Revise os detalhes antes de continuar.', body: 'Este modal usa o componente real da biblioteca.', confirmLabel: 'Confirmar', size: 'medium', closeOnOverlayClick: true },
     controls: [
       { type: 'text', name: 'title', label: 'Title', placeholder: 'Confirmar acao' },
       { type: 'textarea', name: 'description', label: 'Description', placeholder: 'Revise os detalhes antes de continuar.' },
       { type: 'textarea', name: 'body', label: 'Body', placeholder: 'Conteudo do modal' },
       { type: 'text', name: 'confirmLabel', label: 'Confirm label', placeholder: 'Confirmar' },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }, { label: 'XL', value: 'xl' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }, { label: 'ExtraLarge', value: 'extraLarge' }] },
       { type: 'boolean', name: 'closeOnOverlayClick', label: 'Close on overlay click' },
     ],
     render: (props: ModalPlaygroundProps) => <ModalPreview {...props} />,
@@ -824,12 +825,12 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<ModalPlaygroundProps>,
   drawer: {
     imports: ['Button', 'Drawer', 'Text', 'Flex'],
-    initialProps: { title: 'Filtros', body: 'Use este painel para organizar um fluxo secundario sem sair da pagina.', confirmLabel: 'Aplicar', size: 'md', placement: 'right', closeOnOverlayClick: true },
+    initialProps: { title: 'Filtros', body: 'Use este painel para organizar um fluxo secundario sem sair da pagina.', confirmLabel: 'Aplicar', size: 'medium', placement: 'right', closeOnOverlayClick: true },
     controls: [
       { type: 'text', name: 'title', label: 'Title', placeholder: 'Filtros' },
       { type: 'textarea', name: 'body', label: 'Body', placeholder: 'Conteudo do drawer' },
       { type: 'text', name: 'confirmLabel', label: 'Confirm label', placeholder: 'Aplicar' },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }, { label: 'Full', value: 'full' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }, { label: 'Full', value: 'full' }] },
       { type: 'select', name: 'placement', label: 'Placement', options: [{ label: 'Left', value: 'left' }, { label: 'Right', value: 'right' }] },
       { type: 'boolean', name: 'closeOnOverlayClick', label: 'Close on overlay click' },
     ],
@@ -838,10 +839,10 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<DrawerPlaygroundProps>,
   code: {
     imports: ['Code'],
-    initialProps: { children: 'npm install acyon', size: 'sm', weight: 'medium', block: false },
+    initialProps: { children: 'npm install acyon', size: 'small', weight: 'medium', block: false },
     controls: [
       { type: 'textarea', name: 'children', label: 'Content', placeholder: 'npm install acyon' },
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }] },
       { type: 'select', name: 'weight', label: 'Weight', options: [{ label: 'Normal', value: 'normal' }, { label: 'Medium', value: 'medium' }, { label: 'Semibold', value: 'semibold' }, { label: 'Bold', value: 'bold' }] },
       { type: 'boolean', name: 'block', label: 'Block' },
     ],
@@ -1107,9 +1108,9 @@ export const playgroundConfigs: PlaygroundConfigMap = {
   } satisfies PlaygroundConfig<BoxPlaygroundProps>,
   container: {
     imports: ['Container', 'Text'],
-    initialProps: { size: 'md', children: 'Area de container.' },
+    initialProps: { size: 'medium', children: 'Area de container.' },
     controls: [
-      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'SM', value: 'sm' }, { label: 'MD', value: 'md' }, { label: 'LG', value: 'lg' }, { label: 'XL', value: 'xl' }, { label: 'Full', value: 'full' }] },
+      { type: 'select', name: 'size', label: 'Size', options: [{ label: 'Small', value: 'small' }, { label: 'Medium', value: 'medium' }, { label: 'Large', value: 'large' }, { label: 'ExtraLarge', value: 'extraLarge' }, { label: 'Full', value: 'full' }] },
       { type: 'textarea', name: 'children', label: 'Content', placeholder: 'Area de container.' },
     ],
     render: (props: ContainerPlaygroundProps) => <Labs.Container size={props.size}><Labs.Text>{props.children}</Labs.Text></Labs.Container>,
@@ -1135,6 +1136,50 @@ export const playgroundConfigs: PlaygroundConfigMap = {
       ');',
     ]),
   } satisfies PlaygroundConfig<DividerPlaygroundProps>,
+  dropdown: {
+    imports: ['Button', 'Dropdown'],
+    initialProps: { label: 'Acoes', placement: 'bottom-start', matchTriggerWidth: false, disabled: false },
+    controls: [
+      { type: 'text', name: 'label', label: 'Trigger label', placeholder: 'Acoes' },
+      { type: 'select', name: 'placement', label: 'Placement', options: [{ label: 'Bottom Start', value: 'bottom-start' }, { label: 'Bottom End', value: 'bottom-end' }, { label: 'Top Start', value: 'top-start' }, { label: 'Top End', value: 'top-end' }] },
+      { type: 'boolean', name: 'matchTriggerWidth', label: 'Match trigger width' },
+      { type: 'boolean', name: 'disabled', label: 'Disabled' },
+    ],
+    render: (props: DropdownPlaygroundProps) => (
+      <Labs.Dropdown
+        placement={props.placement}
+        matchTriggerWidth={Boolean(props.matchTriggerWidth)}
+        disabled={Boolean(props.disabled)}
+        content={(
+          <>
+            <Labs.Dropdown.Item leftContent={<Labs.Icon name="edit" size={14} />}>Editar</Labs.Dropdown.Item>
+            <Labs.Dropdown.Item leftContent={<Labs.Icon name="copy" size={14} />}>Duplicar</Labs.Dropdown.Item>
+            <Labs.Dropdown.Item destructive leftContent={<Labs.Icon name="trash" size={14} />}>Excluir</Labs.Dropdown.Item>
+          </>
+        )}
+      >
+        <Labs.Button variant="outline" disabled={Boolean(props.disabled)}>{props.label}</Labs.Button>
+      </Labs.Dropdown>
+    ),
+    generateCode: (props) => wrapSnippet(['Button', 'Dropdown', 'Icon'], [
+      'return (',
+      '  <Dropdown',
+      `    placement="${props.placement}"`,
+      `${props.matchTriggerWidth ? '    matchTriggerWidth' : ''}`,
+      `${props.disabled ? '    disabled' : ''}`,
+      '    content={(',
+      '      <>',
+      '        <Dropdown.Item leftContent={<Icon name="edit" size={14} />}>Editar</Dropdown.Item>',
+      '        <Dropdown.Item leftContent={<Icon name="copy" size={14} />}>Duplicar</Dropdown.Item>',
+      '        <Dropdown.Item destructive leftContent={<Icon name="trash" size={14} />}>Excluir</Dropdown.Item>',
+      '      </>',
+      '    )}',
+      '  >',
+      `    <Button variant="outline"${props.disabled ? ' disabled' : ''}>${props.label}</Button>`,
+      '  </Dropdown>',
+      ');',
+    ].filter(Boolean)),
+  } satisfies PlaygroundConfig<DropdownPlaygroundProps>,
   flex: {
     imports: ['Badge', 'Flex'],
     initialProps: { direction: 'row', align: 'center', justify: 'flex-start', gap: '4' },

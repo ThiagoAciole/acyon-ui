@@ -23,7 +23,7 @@ export function QuickStartCard({
           </Box>
           <Flex direction="column" gap="2">
             <Heading5>{title}</Heading5>
-            <Text size="sm" color="neutral">
+            <Text size="small" color="neutral">
               {description}
             </Text>
           </Flex>

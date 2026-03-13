@@ -16,7 +16,7 @@ export const Modal: React.FC<ModalProps> = ({
     description,
     children,
     footer,
-    size = 'md',
+    size = 'medium',
     closeOnOverlayClick = true,
     className,
 }) => {
@@ -74,7 +74,7 @@ export const Modal: React.FC<ModalProps> = ({
                             aria-label="Close modal"
                             variant="ghost"
                             color="neutral"
-                            size="sm"
+                            size="small"
                             onClick={onClose}
                         />
                     </div>

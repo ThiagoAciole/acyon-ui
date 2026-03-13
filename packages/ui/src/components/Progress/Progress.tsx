@@ -9,7 +9,7 @@ export type { ProgressProps, ProgressSize } from './types';
 export const Progress: React.FC<ProgressProps> = ({
     value,
     max = 100,
-    size = 'md',
+    size = 'medium',
     color,
     animated = false,
     showValue = false,

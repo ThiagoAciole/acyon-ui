@@ -10,7 +10,7 @@ export function CodePanel({ code, language }: CodePanelProps) {
   return (
     <Box className="home-code-panel">
       {language ? (
-        <Text size="xs" className="home-code-panel__language">
+        <Text size="extraSmall" className="home-code-panel__language">
           {language}
         </Text>
       ) : null}

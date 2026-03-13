@@ -8,7 +8,7 @@ export type { AvatarProps, AvatarSize, AvatarStatus } from './types';
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(({
     src,
     name,
-    size = 'md',
+    size = 'medium',
     status,
     className,
     ...props

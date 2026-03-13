@@ -18,7 +18,7 @@ export const Search = React.forwardRef<HTMLInputElement, SearchProps>(
                 ref={ref}
                 type="search"
                 clearable
-                prefix={loading ? <Loader size="xs" /> : <Icon name="search" size={16} />}
+                prefix={loading ? <Loader size="extraSmall" /> : <Icon name="search" size={16} />}
                 onChange={handleChange}
                 {...props}
             />

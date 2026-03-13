@@ -47,7 +47,7 @@ function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: (id: str
                 icon={<Icon name="close" size={14} />}
                 aria-label="Dismiss notification" 
                 variant="ghost" 
-                size="sm" 
+                size="small" 
                 onClick={handleDismiss} 
                 className="toast-close" 
             />

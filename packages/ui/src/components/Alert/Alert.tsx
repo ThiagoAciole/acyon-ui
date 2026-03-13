@@ -22,7 +22,7 @@ export const Alert: React.FC<AlertProps> = ({
             <div className="alert__content">
                 {title && <Heading5 className="alert__title">{title}</Heading5>}
                 {children && (
-                    <Text size="sm" className="alert__description">
+                    <Text size="small" className="alert__description">
                         {children}
                     </Text>
                 )}

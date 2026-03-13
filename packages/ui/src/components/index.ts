@@ -7,6 +7,7 @@ export * from './Search/Search';
 export * from './DatePicker/DatePicker';
 export * from './Select/Select';
 export * from './MultiSelect/MultiSelect';
+export * from './Dropdown/Dropdown';
 export * from './Checkbox/Checkbox';
 export * from './Radio/Radio';
 export * from './Slider/Slider';

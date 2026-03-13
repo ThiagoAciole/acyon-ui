@@ -6,7 +6,7 @@ import type { SwitchProps } from './types';
 export type { SwitchProps, SwitchSize } from './types';
 
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
-    ({ label, size = 'md', className, disabled, ...props }, ref) => {
+    ({ label, size = 'medium', className, disabled, ...props }, ref) => {
         return (
             <label className={classNames(
                 'switch-wrapper',

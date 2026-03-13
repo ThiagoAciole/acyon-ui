@@ -25,7 +25,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 {showBack && (
                     <IconButton
                         variant="ghost"
-                        size="sm"
+                        size="small"
                         icon={<Icon name="chevron-left" size={16} />}
                         onClick={onBack}
                         label="Back"

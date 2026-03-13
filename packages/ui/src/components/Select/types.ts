@@ -7,7 +7,7 @@ export interface SelectOption {
     disabled?: boolean;
 }
 
-export type SelectSize = 'sm' | 'md' | 'lg';
+export type SelectSize = 'small' | 'medium' | 'large';
 
 export interface SelectProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     options: SelectOption[];

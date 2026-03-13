@@ -19,18 +19,18 @@ export const FormField: React.FC<FormFieldProps> = ({
     return (
         <Flex direction="column" gap="1" className={classNames('form-field-root', full && 'form-field--full', className)}>
             {label && (
-                <Text size="sm" weight="medium" as="label" htmlFor={htmlFor} className="form-field-label">
+                <Text size="small" weight="medium" as="label" htmlFor={htmlFor} className="form-field-label">
                     {LabelFormater(label)}
                 </Text>
             )}
             {children}
             {error && (
-                <Text as="span" color="error" size="sm" className="form-field-message" role="alert">
+                <Text as="span" color="error" size="small" className="form-field-message" role="alert">
                     {error}
                 </Text>
             )}
             {!error && hint && (
-                <Text as="span" color="neutral" size="sm" className="form-field-message">
+                <Text as="span" color="neutral" size="small" className="form-field-message">
                     {hint}
                 </Text>
             )}

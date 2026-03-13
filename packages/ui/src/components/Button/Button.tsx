@@ -10,7 +10,7 @@ export type { ButtonColor, ButtonProps, ButtonSize, ButtonVariant } from './type
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({
         variant = 'solid',
-        size = 'md',
+        size = 'medium',
         loading = false,
         disabled,
         icon,
@@ -53,7 +53,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             >
                 {loading && (
                     <Loader 
-                        size={size === 'xs' || size === 'sm' ? 'xs' : size === 'md' ? 'sm' : 'md'} 
+                        size={size === 'extraSmall' || size === 'small' ? 'extraSmall' : size === 'medium' ? 'small' : 'medium'} 
                         className="btn__spinner" 
                     />
                 )}

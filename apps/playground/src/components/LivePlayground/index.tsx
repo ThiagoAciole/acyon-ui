@@ -111,7 +111,7 @@ export function LivePlayground({ route }: LivePlaygroundProps) {
             icon={<Icon name="copy" size={16} />}
             onClick={() => navigator.clipboard?.writeText(code)}
             variant="ghost"
-            size="sm"
+            size="small"
           />
         </div>
 
@@ -142,7 +142,7 @@ export function LivePlayground({ route }: LivePlaygroundProps) {
         <div className="component-playground__panel-header">
           <Flex align="center" gap="2">
             <Icon name="settings" size={16} />
-            <Text as="span" size="sm" weight="bold">Properties</Text>
+            <Text as="span" size="small" weight="bold">Properties</Text>
           </Flex>
 
           <IconButton
@@ -150,7 +150,7 @@ export function LivePlayground({ route }: LivePlaygroundProps) {
             icon={<Icon name="refresh" size={16} />}
             onClick={() => setPropsState(config?.initialProps ?? {})}
             variant="ghost"
-            size="sm"
+            size="small"
           />
         </div>
 
@@ -215,7 +215,7 @@ export function LivePlayground({ route }: LivePlaygroundProps) {
           ) : (
             <div className="component-playground__empty">
               <Text weight="semibold">Sem propriedades configuradas</Text>
-              <Text size="sm" color="neutral">
+              <Text size="small" color="neutral">
                 Este componente ainda usa apenas preview e source estatico.
               </Text>
             </div>

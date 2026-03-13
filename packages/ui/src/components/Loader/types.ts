@@ -1,6 +1,6 @@
 import type { ColorValue } from '../../utils/styleTokens';
 
-export type LoaderSize = 'xs' | 'sm' | 'md' | 'lg';
+export type LoaderSize = 'extraSmall' | 'small' | 'medium' | 'large';
 
 export interface LoaderProps {
     size?: LoaderSize;

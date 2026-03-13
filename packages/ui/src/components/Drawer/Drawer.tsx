@@ -16,7 +16,7 @@ export const Drawer: React.FC<DrawerProps> = ({
     placement = 'right',
     children,
     footer,
-    size = 'md',
+    size = 'medium',
     className,
     closeOnOverlayClick = true
 }) => {
@@ -56,7 +56,7 @@ export const Drawer: React.FC<DrawerProps> = ({
                     <IconButton
                         icon={<Icon name="close" size={16} />}
                         variant="ghost"
-                        size="sm"
+                        size="small"
                         onClick={onClose}
                         aria-label="Fechar painel"
                     />

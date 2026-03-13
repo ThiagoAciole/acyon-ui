@@ -16,7 +16,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
         label,
         error,
         supportText,
-        size = 'md',
+        size = 'medium',
         placeholder = 'Select...',
         full = false,
         disabled = false,

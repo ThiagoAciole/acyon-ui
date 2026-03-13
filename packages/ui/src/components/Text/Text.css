@@ -4,11 +4,11 @@
   line-height: var(--line-height-normal);
 }
 
-.text--size-xs { font-size: var(--font-size-xs); }
-.text--size-sm { font-size: var(--font-size-sm); }
-.text--size-md { font-size: var(--font-size-md); }
-.text--size-lg { font-size: var(--font-size-lg); }
-.text--size-xl { font-size: var(--font-size-xl); }
+.text--size-extraSmall { font-size: var(--font-size-xs); }
+.text--size-small { font-size: var(--font-size-sm); }
+.text--size-medium { font-size: var(--font-size-md); }
+.text--size-large { font-size: var(--font-size-lg); }
+.text--size-extraLarge { font-size: var(--font-size-xl); }
 
 .text--color-default { color: var(--text-main); }
 .text--color-inverse { color: var(--text-inverse); }

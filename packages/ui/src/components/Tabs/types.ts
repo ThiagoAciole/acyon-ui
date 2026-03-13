@@ -9,7 +9,7 @@ export interface TabItem {
 }
 
 export type TabsVariant = 'default' | 'pills';
-export type TabsSize = 'sm' | 'md' | 'lg';
+export type TabsSize = 'small' | 'medium' | 'large';
 
 export interface TabsProps {
     tabs: TabItem[];

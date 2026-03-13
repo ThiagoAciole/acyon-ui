@@ -1,8 +1,8 @@
 .loader { --loader-color: var(--color-primary); display: inline-flex; align-items: center; justify-content: center; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 .loader__ring { border-radius: 50%; border: 2px solid transparent; border-top-color: var(--loader-color); border-right-color: color-mix(in srgb, var(--loader-color) 40%, transparent); animation: spin 0.7s linear infinite; }
-.loader--xs .loader__ring { width: .75rem; height: .75rem; }
-.loader--sm .loader__ring { width: 1rem; height: 1rem; }
-.loader--md .loader__ring { width: 1.5rem; height: 1.5rem; }
-.loader--lg .loader__ring { width: 2rem; height: 2rem; border-width: 3px; }
+.loader--extraSmall .loader__ring { width: .75rem; height: .75rem; }
+.loader--small .loader__ring { width: 1rem; height: 1rem; }
+.loader--medium .loader__ring { width: 1.5rem; height: 1.5rem; }
+.loader--large .loader__ring { width: 2rem; height: 2rem; border-width: 3px; }
 @keyframes spin { to { transform: rotate(360deg); } }

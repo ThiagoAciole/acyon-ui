@@ -97,7 +97,7 @@ export const TopBar: React.FC<TopBarProps> = ({
                     <IconButton
                         icon={theme === 'dark' ? <Icon name="sun" size={16} /> : <Icon name="moon" size={16} />}
                         variant="ghost"
-                        size="sm"
+                        size="small"
                         label="Toggle theme"
                         onClick={toggleTheme}
                     />

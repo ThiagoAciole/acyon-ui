@@ -12,14 +12,14 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ title, description, 
         <div className={classNames('timeline-item', !icon && !src && !name && 'timeline-item--dot')}>
             <div className="timeline-item__aside">
                 <div className="timeline-item__marker">
-                    {src || name ? <Avatar src={src} name={name} size="sm" /> : icon ? <div className="timeline-item__icon">{icon}</div> : <div className="timeline-item__dot" />}
+                    {src || name ? <Avatar src={src} name={name} size="small" /> : icon ? <div className="timeline-item__icon">{icon}</div> : <div className="timeline-item__dot" />}
                 </div>
                 <div className="timeline-item__line" />
             </div>
             <div className="timeline-item__content">
                 <div className="timeline-item__header">
                     <Text weight="medium">{title}</Text>
-                    {date && <Text size="sm" color="neutral">{date}</Text>}
+                    {date && <Text size="small" color="neutral">{date}</Text>}
                 </div>
                 {description && <div className="timeline-item__description"><Text color="neutral">{description}</Text></div>}
             </div>

@@ -13,9 +13,9 @@
   height: var(--progress-height, 8px);
 }
 
-.progress--sm { height: 4px; }
-.progress--md { height: 8px; }
-.progress--lg { height: 12px; }
+.progress--small { height: 4px; }
+.progress--medium { height: 8px; }
+.progress--large { height: 12px; }
 
 .progress-bar {
   height: 100%;

@@ -111,13 +111,13 @@
   color: white;
 }
 
-.input-field--sm .input-field__input {
+.input-field--small .input-field__input {
   padding-top: var(--space-2);
   padding-bottom: var(--space-2);
   font-size: var(--font-size-sm);
 }
 
-.input-field--lg .input-field__input {
+.input-field--large .input-field__input {
   padding-top: var(--space-4);
   padding-bottom: var(--space-4);
   font-size: var(--font-size-lg);

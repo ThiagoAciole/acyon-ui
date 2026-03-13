@@ -8,7 +8,7 @@ export type { TagProps, TagSize, TagVariant } from './types';
 export function Tag({
     children,
     variant = 'soft',
-    size = 'md',
+    size = 'medium',
     color = 'primary',
     leftIcon,
     rightIcon,

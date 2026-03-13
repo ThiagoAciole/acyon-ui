@@ -1,7 +1,7 @@
 import type * as React from 'react';
 
 export type DrawerPlacement = 'left' | 'right';
-export type DrawerSize = 'sm' | 'md' | 'lg' | 'full';
+export type DrawerSize = 'small' | 'medium' | 'large' | 'full';
 
 export interface DrawerProps {
     isOpen: boolean;

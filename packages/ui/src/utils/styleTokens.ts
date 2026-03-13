@@ -5,7 +5,7 @@ export type ColorValue = LooseStringUnion<TokenColor>;
 export type TokenTextColor = LooseStringUnion<TokenColor | 'default' | 'inverse' | 'disabled'>;
 export type TokenIconColor = LooseStringUnion<TokenColor | 'default' | 'disabled'>;
 
-export type TokenSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type TokenSize = 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
 export type TokenWeight = 'normal' | 'medium' | 'semibold' | 'bold';
 
 const TOKEN_COLORS: readonly TokenColor[] = ['primary', 'neutral', 'success', 'warning', 'error'];
@@ -54,7 +54,17 @@ export function iconColorVar(color?: TokenIconColor): string | undefined {
 }
 
 export function fontSizeVar(size?: TokenSize): string | undefined {
-    return size ? `var(--font-size-${size})` : undefined;
+    if (!size) return undefined;
+
+    const fontSizeMap: Record<TokenSize, string> = {
+        extraSmall: 'xs',
+        small: 'sm',
+        medium: 'md',
+        large: 'lg',
+        extraLarge: 'xl',
+    };
+
+    return `var(--font-size-${fontSizeMap[size]})`;
 }
 
 export function fontWeightVar(weight?: TokenWeight): string | undefined {

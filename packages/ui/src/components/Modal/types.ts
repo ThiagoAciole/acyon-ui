@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-export type ModalSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
+export type ModalSize = 'small' | 'medium' | 'large' | 'extraLarge' | 'full';
 
 export interface ModalProps {
     open: boolean;

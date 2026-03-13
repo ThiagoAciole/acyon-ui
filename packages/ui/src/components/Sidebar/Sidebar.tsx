@@ -184,7 +184,7 @@ function SidebarHeader({
                         onChange={(event) => setSearchTerm(event.target.value)}
                         placeholder={searchPlaceholder}
                         prefix={<Icon name="search" size={16} />}
-                        size="sm"
+                        size="small"
                         full
                     />
                 </div>

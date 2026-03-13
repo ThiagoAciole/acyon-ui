@@ -5,7 +5,7 @@ import type { LoaderProps } from './types';
 
 export type { LoaderProps, LoaderSize } from './types';
 
-export function Loader({ size = 'md', color, className, label = 'Loading...' }: LoaderProps) {
+export function Loader({ size = 'medium', color, className, label = 'Loading...' }: LoaderProps) {
     const style = color ? { ['--loader-color' as string]: colorVar(color) } : {};
     
     return (

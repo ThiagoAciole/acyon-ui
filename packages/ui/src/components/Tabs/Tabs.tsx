@@ -12,7 +12,7 @@ export const Tabs: React.FC<TabsProps> = ({
     onChange,
     className,
     variant = 'default',
-    size = 'md'
+    size = 'medium'
 }) => {
     const [internalValue, setInternalValue] = useState(defaultValue ?? tabs[0]?.value ?? '');
     const activeValue = controlledValue ?? internalValue;

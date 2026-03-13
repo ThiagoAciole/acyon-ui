@@ -17,11 +17,11 @@
   background: transparent;
 }
 
-.tag--size-xs { padding: 0 var(--space-2); min-height: 18px; font-size: 10px; }
-.tag--size-sm { padding: 0 var(--space-2); min-height: 22px; font-size: var(--font-size-xs); }
-.tag--size-md { padding: 0 var(--space-3); min-height: 26px; font-size: var(--font-size-sm); }
-.tag--size-lg { padding: 0 var(--space-3); min-height: 30px; font-size: var(--font-size-md); }
-.tag--size-xl { padding: 0 var(--space-4); min-height: 34px; font-size: var(--font-size-lg); }
+.tag--size-extraSmall { padding: 0 var(--space-2); min-height: 18px; font-size: 10px; }
+.tag--size-small { padding: 0 var(--space-2); min-height: 22px; font-size: var(--font-size-xs); }
+.tag--size-medium { padding: 0 var(--space-3); min-height: 26px; font-size: var(--font-size-sm); }
+.tag--size-large { padding: 0 var(--space-3); min-height: 30px; font-size: var(--font-size-md); }
+.tag--size-extraLarge { padding: 0 var(--space-4); min-height: 34px; font-size: var(--font-size-lg); }
 
 .tag__remove {
   border: 0;

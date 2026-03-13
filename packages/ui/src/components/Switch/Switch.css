@@ -72,6 +72,6 @@
   opacity: 0.6;
 }
 
-.switch--sm .switch-track { width: 32px; height: 18px; }
-.switch--sm .switch-thumb { width: 10px; height: 10px; }
-.switch--sm .switch-input:checked + .switch-track .switch-thumb { transform: translateX(14px); }
+.switch--small .switch-track { width: 32px; height: 18px; }
+.switch--small .switch-thumb { width: 10px; height: 10px; }
+.switch--small .switch-input:checked + .switch-track .switch-thumb { transform: translateX(14px); }

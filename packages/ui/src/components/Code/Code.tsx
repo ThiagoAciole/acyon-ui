@@ -6,7 +6,7 @@ import type { CodeProps } from './types';
 export type { CodeProps, CodeSize, CodeWeight } from './types';
 
 export const Code: React.FC<CodeProps> = ({
-    size = 'sm',
+    size = 'small',
     weight = 'medium',
     block = false,
     children,

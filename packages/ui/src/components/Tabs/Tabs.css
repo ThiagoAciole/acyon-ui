@@ -60,5 +60,5 @@
   color: var(--text-main);
 }
 
-.tabs--sm .tabs-trigger { padding: var(--space-1) var(--space-3); font-size: var(--font-size-xs); }
-.tabs--lg .tabs-trigger { padding: var(--space-3) var(--space-6); font-size: var(--font-size-md); }
+.tabs--small .tabs-trigger { padding: var(--space-1) var(--space-3); font-size: var(--font-size-xs); }
+.tabs--large .tabs-trigger { padding: var(--space-3) var(--space-6); font-size: var(--font-size-md); }

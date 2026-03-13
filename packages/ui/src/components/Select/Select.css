@@ -19,9 +19,9 @@
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
 }
 
-.select__trigger--sm { min-height: 36px; padding: 0 var(--space-3); font-size: var(--font-size-sm); }
-.select__trigger--md { min-height: 42px; padding: 0 var(--space-4); font-size: var(--font-size-md); }
-.select__trigger--lg { min-height: 48px; padding: 0 var(--space-4); font-size: var(--font-size-lg); }
+.select__trigger--small { min-height: 36px; padding: 0 var(--space-3); font-size: var(--font-size-sm); }
+.select__trigger--medium { min-height: 42px; padding: 0 var(--space-4); font-size: var(--font-size-md); }
+.select__trigger--large { min-height: 48px; padding: 0 var(--space-4); font-size: var(--font-size-lg); }
 
 .select__trigger--open {
   border-color: var(--color-primary);

@@ -7,7 +7,7 @@ import type { TextProps } from './types';
 export type { TextColor, TextOwnProps, TextProps, TextSize, TextWeight } from './types';
 
 export const Text = <TElement extends React.ElementType = 'p'>({
-    size = 'md',
+    size = 'medium',
     color = 'default',
     weight = 'normal',
     as,

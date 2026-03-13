@@ -23,7 +23,7 @@ export function OverviewPage() {
           <Box className="home-overview-page__callout">
             <Flex align="flex-start" gap="3">
               <Icon name="info" size={16} />
-              <Text size="sm">
+              <Text size="small">
                 O playground ja esta configurado para demonstrar o uso dos componentes em cenarios reais. Use a sidebar para navegar entre categorias e ajustar exemplos ao vivo.
               </Text>
             </Flex>

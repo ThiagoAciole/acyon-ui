@@ -7,7 +7,7 @@ export type { ContainerProps, ContainerSize } from './types';
 
 export const Container: React.FC<ContainerProps> = ({
     children,
-    size = 'lg',
+    size = 'large',
     className,
     style
 }) => {

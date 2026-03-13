@@ -10,7 +10,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(({
     children,
     variant = 'soft',
     color = 'primary',
-    size = 'md',
+    size = 'medium',
     className,
     ...props
 }, ref) => {

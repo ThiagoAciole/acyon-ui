@@ -33,7 +33,7 @@ export function CardHeader({ title, description, icon, action, children, classNa
                     </div>
                 )}
                 {description && (
-                    <Text size="sm" color="neutral">
+                    <Text size="small" color="neutral">
                         {description}
                     </Text>
                 )}
