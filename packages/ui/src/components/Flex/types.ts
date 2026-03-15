@@ -14,6 +14,8 @@ export interface FlexOwnProps {
     justify?: FlexJustify;
     wrap?: FlexWrap;
     gap?: FlexGap;
+    width?: number | string;
+    height?: number | string;
 }
 
 export type FlexProps<TElement extends React.ElementType = 'div'> = PolymorphicComponentProps<TElement, FlexOwnProps>;

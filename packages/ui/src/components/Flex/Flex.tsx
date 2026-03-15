@@ -15,6 +15,8 @@ export const Flex = <TElement extends React.ElementType = 'div'>({
     className,
     style,
     as,
+    width,
+    height,
     ...props
 }: FlexProps<TElement>) => {
     const Component = (as || 'div') as React.ElementType;
@@ -30,7 +32,11 @@ export const Flex = <TElement extends React.ElementType = 'div'>({
                 `flex-gap--${gap}`,
                 className
             )}
-            style={style}
+            style={{
+                width: typeof width === 'number' ? `${width}px` : width,
+                height: typeof height === 'number' ? `${height}px` : height,
+                ...style,
+            }}
             {...props}
         >
             {children}
