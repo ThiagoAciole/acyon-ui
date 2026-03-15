@@ -23,8 +23,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'acyon',
-      fileName: (format: string) => `acyon.${format}.js`,
+      name: 'acyui',
+      fileName: (format: string) => `acyui.${format}.js`,
+      cssFileName: 'acyui',
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

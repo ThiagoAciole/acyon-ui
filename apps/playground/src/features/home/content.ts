@@ -1,19 +1,19 @@
 export const homeContent = {
   overview: {
     header: {
-      title: 'Acyon UI - Visao geral',
-      description: 'Acyon UI e uma biblioteca de componentes React focada em velocidade de implementacao, consistencia visual e composicao. A base foi pensada para uso imediato em produtos reais.',
+      title: 'Acyui - Visao geral',
+      description: 'Acyui e uma biblioteca de componentes React focada em velocidade de implementacao, consistencia visual e composicao. A base foi pensada para uso imediato em produtos reais.',
     },
     introduction: {
       title: 'Introducao',
       paragraphs: [
-        'Acyon UI entrega um conjunto de componentes reutilizaveis, estilos base e tokens semanticos para acelerar a construcao de interfaces sem perder controle sobre o design.',
+        'Acyui entrega um conjunto de componentes reutilizaveis, estilos base e tokens semanticos para acelerar a construcao de interfaces sem perder controle sobre o design.',
         'A biblioteca cobre formularios, layout, exibicao de dados, feedback e navegacao. Em vez de impor uma camada pesada de abstracao, ela prioriza primitives simples, API clara e integracao direta com a aplicacao.',
       ],
       callout: 'O playground ja esta configurado para demonstrar o uso dos componentes em cenarios reais. Use a sidebar para navegar entre categorias e ajustar exemplos ao vivo.',
     },
     benefits: {
-      title: 'Vantagens do Acyon UI',
+      title: 'Vantagens do Acyui',
       items: [
         {
           kicker: 'Velocity',
@@ -70,20 +70,20 @@ export const homeContent = {
       {
         step: 1,
         title: 'Instale o pacote',
-        description: 'Adicione <Code>acyon</Code> ao seu projeto com o gerenciador de pacotes da stack.',
-        code: 'npm install @aciole/acyon',
+        description: 'Adicione <Code>@acyui/components</Code> ao seu projeto com o gerenciador de pacotes da stack.',
+        code: 'npm install @acyui/components',
       },
       {
         step: 2,
         title: 'Importe os estilos base',
         description: 'Garanta que os tokens e estilos globais sejam carregados no ponto de entrada da aplicacao.',
-        code: "import '@aciole/acyon/styles';",
+        code: "import '@acyui/components/styles';",
       },
       {
         step: 3,
         title: 'Configure os providers',
         description: 'Envolva a aplicacao com <Code>ThemeProvider</Code>. Ele ja inclui a camada de toast por padrao.',
-        code: `import { ThemeProvider } from '@aciole/acyon';
+        code: `import { ThemeProvider } from '@acyui/components';
 
 function AppProviders({ children }) {
   return (
@@ -105,7 +105,7 @@ function AppProviders({ children }) {
       paragraphs: [
         'Depois da instalacao, escolha qualquer componente na sidebar e use o playground para experimentar variacoes de props, estrutura e composicao.',
       ],
-      snippet: `import { Button } from '@aciole/acyon';
+      snippet: `import { Button } from '@acyui/components';
 
 export function Example() {
   return <Button variant="primary">Ola mundo</Button>;

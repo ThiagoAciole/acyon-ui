@@ -1,4 +1,4 @@
-import * as Labs from '@aciole/acyon';
+import * as Labs from '@acyui/components';
 import { createSnippet, buildOpeningTag } from '../../../shared/snippet/create-snippet';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';

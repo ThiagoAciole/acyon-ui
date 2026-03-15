@@ -1,4 +1,4 @@
-import { Accordion, Box, Code, Flex, Link, PageHeader, Text } from '@aciole/acyon';
+import { Accordion, Box, Code, Flex, Link, PageHeader, Text } from '@acyui/components';
 import { CodePanel } from '../../../components/CodePanel';
 import { DocSection } from '../../../components/DocSection';
 import { homeContent } from '../content';

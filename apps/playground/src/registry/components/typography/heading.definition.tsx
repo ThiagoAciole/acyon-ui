@@ -1,4 +1,4 @@
-import * as Labs from '@aciole/acyon';
+import * as Labs from '@acyui/components';
 import * as React from 'react';
 import { wrapSnippet } from '../../../shared/playground/playground-helpers';
 import { defineComponent } from '../../defineComponent';

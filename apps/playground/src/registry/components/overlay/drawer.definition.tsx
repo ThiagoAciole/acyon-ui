@@ -36,7 +36,7 @@ const drawerDefinition: ComponentDefinition<DrawerPlaygroundProps> = defineCompo
     ],
     render: (props) => <DrawerPreview {...props} />,
     code: (props) => `import { useState } from 'react';
-import { Button, Drawer, Flex, Text } from '@aciole/acyon';
+import { Button, Drawer, Flex, Text } from '@acyui/components';
 
 export function Example() {
   const [open, setOpen] = useState(false);

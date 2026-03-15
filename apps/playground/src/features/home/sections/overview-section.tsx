@@ -1,4 +1,4 @@
-import { Badge, Box, Card, CardBody, Flex, Grid, Icon, PageHeader, Text } from '@aciole/acyon';
+import { Badge, Box, Card, CardBody, Flex, Grid, Icon, PageHeader, Text } from '@acyui/components';
 import { DocSection } from '../../../components/DocSection';
 import { QuickStartCard } from '../../../components/QuickStartCard';
 import { homeContent } from '../content';

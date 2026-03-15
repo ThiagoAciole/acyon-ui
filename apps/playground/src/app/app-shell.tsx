@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Sidebar, TopBar, useTheme } from '@aciole/acyon';
+import { Box, Flex, Icon, Sidebar, TopBar, useTheme } from '@acyui/components';
 import type { ReactNode } from 'react';
 import icon from '../assets/icon.svg';
 import logoDark from '../assets/logo-dark.svg';

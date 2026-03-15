@@ -36,7 +36,7 @@ const modalDefinition: ComponentDefinition<ModalPlaygroundProps> = defineCompone
     ],
     render: (props) => <ModalPreview {...props} />,
     code: (props) => `import { useState } from 'react';
-import { Button, Flex, Modal, Text } from '@aciole/acyon';
+import { Button, Flex, Modal, Text } from '@acyui/components';
 
 export function Example() {
   const [open, setOpen] = useState(false);

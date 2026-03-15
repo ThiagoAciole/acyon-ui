@@ -1,4 +1,4 @@
-name: Publish @aciole/acyon
+name: Publish @acyui/components
 
 on:
   push:

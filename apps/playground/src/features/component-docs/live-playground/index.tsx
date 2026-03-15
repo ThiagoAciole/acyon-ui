@@ -1,4 +1,4 @@
-import { Icon } from '@aciole/acyon';
+import { Icon } from '@acyui/components';
 import { useEffect, useState } from 'react';
 import { PlaygroundPreview } from './playground-preview';
 import './styles.css';

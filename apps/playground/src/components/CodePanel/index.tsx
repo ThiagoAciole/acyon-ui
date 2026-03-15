@@ -1,4 +1,4 @@
-import { Box, Icon, IconButton, Text, useToast } from '@aciole/acyon';
+import { Box, Icon, IconButton, Text, useToast } from '@acyui/components';
 import './styles.css';
 
 interface CodePanelProps {

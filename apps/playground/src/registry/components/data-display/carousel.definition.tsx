@@ -1,4 +1,4 @@
-import * as Labs from '@aciole/acyon';
+import * as Labs from '@acyui/components';
 import img1 from '../../../images/image-1.jpg';
 import img2 from '../../../images/image-2.jpg';
 import img3 from '../../../images/image-3.jpg';
@@ -68,7 +68,7 @@ const carouselDefinition: ComponentDefinition<CarouselPlaygroundProps> = defineC
       const perView = Math.max(1, Number(props.itemsPerView) || 1);
 
       const lines = [
-        `import { Carousel, Image } from '@aciole/acyon';`,
+        `import { Carousel, Image } from '@acyui/components';`,
         ``,
         `export function Example() {`,
         `  return (`,

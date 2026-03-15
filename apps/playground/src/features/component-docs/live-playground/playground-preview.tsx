@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import { Box, Code, Text } from '@aciole/acyon';
+import { Box, Code, Text } from '@acyui/components';
 
 interface PlaygroundPreviewProps {
   element: React.ReactNode;

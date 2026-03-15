@@ -1,18 +1,18 @@
-# @aciole/acyon
+# @acyui/components
 
 Biblioteca de componentes React para uso em aplicacoes web.
 
 ## Instalacao
 
 ```bash
-npm install @aciole/acyon
+npm install @acyui/components
 ```
 
 ## Uso
 
 ```tsx
-import { ThemeProvider, Button } from '@aciole/acyon';
-import '@aciole/acyon/styles';
+import { ThemeProvider, Button } from '@acyui/components';
+import '@acyui/components/dist/acyui.css';
 
 function App() {
   return (
@@ -22,12 +22,3 @@ function App() {
   );
 }
 ```
-
-## Publicacao
-
-```bash
-npm run build --workspace=packages/ui
-npm publish --workspace=packages/ui --access=public
-```
-
-`prepublishOnly` ja executa o build automaticamente no pacote.

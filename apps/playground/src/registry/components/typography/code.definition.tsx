@@ -1,4 +1,4 @@
-import * as Labs from '@aciole/acyon';
+import * as Labs from '@acyui/components';
 import { buildOpeningTag, wrapSnippet } from '../../../shared/playground/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
@@ -18,13 +18,13 @@ const codeDefinition: ComponentDefinition<CodePlaygroundProps> = defineComponent
   description: 'Estilo inline para snippets e tokens tecnicos.',
   playground: {
     initialProps: {
-      children: 'npm install acyon',
+      children: 'npm install @acyui/components',
       size: 'small',
       weight: 'medium',
       block: false,
     },
     controls: [
-      { type: 'textarea', name: 'children', label: 'Content', placeholder: 'npm install acyon' },
+      { type: 'textarea', name: 'children', label: 'Content', placeholder: 'npm install @acyui/components' },
       {
         type: 'select',
         name: 'size',

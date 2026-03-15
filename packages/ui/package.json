@@ -1,7 +1,7 @@
 {
-  "name": "@aciole/acyon",
-  "version": "0.0.6",
-  "description": "Acyon React component library",
+  "name": "@acyui/components",
+  "version": "0.1.0",
+  "description": "Acyui React component library",
   "keywords": [
     "react",
     "components",
@@ -10,17 +10,17 @@
   ],
   "license": "MIT",
   "type": "module",
-  "main": "./dist/acyon.cjs.js",
-  "module": "./dist/acyon.es.js",
+  "main": "./dist/acyui.cjs.js",
+  "module": "./dist/acyui.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/acyon.es.js",
-      "require": "./dist/acyon.cjs.js"
+      "import": "./dist/acyui.es.js",
+      "require": "./dist/acyui.cjs.js"
     },
-    "./styles": "./dist/acyon.css",
-    "./dist/acyon.css": "./dist/acyon.css",
+    "./styles": "./dist/acyui.css",
+    "./dist/acyui.css": "./dist/acyui.css",
     "./package.json": "./package.json"
   },
   "files": [

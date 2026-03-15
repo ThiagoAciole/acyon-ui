@@ -1,4 +1,4 @@
-import { Box } from '@aciole/acyon';
+import { Box } from '@acyui/components';
 import { buildOpeningTag, DatePickerPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
