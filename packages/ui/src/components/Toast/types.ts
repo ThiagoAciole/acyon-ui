@@ -3,12 +3,14 @@ import type { ColorValue } from '../../utils/styleTokens';
 
 export type ToastPosition = 'top-right' | 'top-left' | 'top-center' | 'bottom-right' | 'bottom-left' | 'bottom-center';
 export type ToastColor = Extract<ColorValue, string>;
+export type ToastVariant = 'default' | 'snackbar';
 
 export interface ToastData {
     id: string;
     title: string;
     description?: string;
     color?: ToastColor;
+    variant?: ToastVariant;
     duration?: number;
 }
 

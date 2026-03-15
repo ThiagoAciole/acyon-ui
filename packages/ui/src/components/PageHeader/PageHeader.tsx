@@ -15,12 +15,13 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     showBack = false,
     onBack,
     width,
+    mb,
     action,
     className,
     ...props
 }) => {
     return (
-        <div className={classNames('page-header', className)} {...props} >
+        <div className={classNames('page-header', className)} {...props} style={{ marginBottom: `${mb || 'var(--space-6)'}` }} >
             <div className="page-header__left">
                 {showBack && (
                     <IconButton

@@ -20,29 +20,80 @@ const flexDefinition: ComponentDefinition<FlexPlaygroundProps> = defineComponent
     initialProps: {
       direction: 'row',
       align: 'center',
-      justify: 'flex-start',
+      justify: 'center',
       gap: '4',
     },
     controls: [
-      { type: 'select', name: 'direction', label: 'Direction', options: [{ label: 'Row', value: 'row' }, { label: 'Column', value: 'column' }] },
-      { type: 'select', name: 'align', label: 'Align', options: [{ label: 'Start', value: 'flex-start' }, { label: 'Center', value: 'center' }, { label: 'End', value: 'flex-end' }, { label: 'Stretch', value: 'stretch' }] },
-      { type: 'select', name: 'justify', label: 'Justify', options: [{ label: 'Start', value: 'flex-start' }, { label: 'Center', value: 'center' }, { label: 'End', value: 'flex-end' }, { label: 'Space Between', value: 'space-between' }] },
-      { type: 'select', name: 'gap', label: 'Gap', options: [{ label: '0', value: '0' }, { label: '2', value: '2' }, { label: '4', value: '4' }, { label: '6', value: '6' }] },
+      {
+        type: 'select',
+        name: 'direction',
+        label: 'Direction',
+        options: [
+          { label: 'Row', value: 'row' },
+          { label: 'Column', value: 'column' },
+        ],
+      },
+      {
+        type: 'select',
+        name: 'align',
+        label: 'Align',
+        options: [
+          { label: 'Flex-Start', value: 'flex-start' },
+          { label: 'Center', value: 'center' },
+          { label: 'Flex-End', value: 'flex-end' },
+          { label: 'Stretch', value: 'stretch' },
+        ],
+      },
+      {
+        type: 'select',
+        name: 'justify',
+        label: 'Justify',
+        options: [
+          { label: 'Flex-Start', value: 'flex-start' },
+          { label: 'Center', value: 'center' },
+          { label: 'Flex-End', value: 'flex-end' },
+          { label: 'Space-Between', value: 'space-between' },
+        ],
+      },
+      {
+        type: 'select',
+        name: 'gap',
+        label: 'Gap',
+        options: [
+          { label: '0', value: '0' },
+          { label: '2', value: '2' },
+          { label: '4', value: '4' },
+          { label: '6', value: '6' },
+        ],
+      },
     ],
     render: (props) => (
-      <Labs.Flex direction={props.direction} align={props.align} justify={props.justify} gap={props.gap}>
-        <Labs.Badge>1</Labs.Badge>
-        <Labs.Badge>2</Labs.Badge>
-        <Labs.Badge>3</Labs.Badge>
-      </Labs.Flex>
+      <div style={{ width: '100%' }}>
+        <Labs.Flex
+          direction={props.direction}
+          align={props.align}
+          justify={props.justify}
+          gap={props.gap}
+          style={{ width: '100%' }}
+        >
+          <Labs.Card style={{ padding: 16, minWidth: 120 }}>Card 1</Labs.Card>
+          <Labs.Card style={{ padding: 16, minWidth: 120 }}>Card 2</Labs.Card>
+          <Labs.Card style={{ padding: 16, minWidth: 120 }}>Card 3</Labs.Card>
+        </Labs.Flex>
+      </div>
     ),
-    code: (props) => wrapSnippet(['Badge', 'Flex'], [
-      'return (',
-      `  <Flex direction="${props.direction}" align="${props.align}" justify="${props.justify}" gap="${props.gap}">`,
-      '    <Badge>1</Badge><Badge>2</Badge><Badge>3</Badge>',
-      '  </Flex>',
-      ');',
-    ]),
+    code: (props) =>
+      wrapSnippet(['Card', 'Flex'], [
+        'return (',
+        '  <div style={{ width: "100%" }}>',
+        `    <Flex direction="${props.direction}" align="${props.align}" justify="${props.justify}" gap="${props.gap}" style={{ width: "100%" }}>`,
+        '      <Card style={{ padding: 16, minWidth: 120 }}>Card 1</Card>',
+        '      <Card style={{ padding: 16, minWidth: 120 }}>Card 2</Card>',
+        '      <Card style={{ padding: 16, minWidth: 120 }}>Card 3</Card>',
+        '    </Flex>',
+        '  </div>',
+        ');',
+      ]),
   },
 });
 

@@ -1,0 +1,155 @@
+/* ── Base container ──────────────────────────────────────── */
+
+.number-input {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  color: var(--text-main);
+  transition: border-color var(--transition-normal) ease, box-shadow var(--transition-normal) ease;
+  overflow: hidden;
+}
+
+.number-input--full {
+  width: 100%;
+}
+
+.number-input:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary), transparent 80%);
+}
+
+.number-input--error {
+  border-color: var(--color-danger);
+}
+
+.number-input--error:focus-within {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-danger), transparent 82%);
+}
+
+.number-input--disabled {
+  background-color: var(--bg-surface-2);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ── Input field ─────────────────────────────────────────── */
+
+.number-input__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.number-input__input::-webkit-inner-spin-button,
+.number-input__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.number-input__input::placeholder {
+  color: var(--text-muted);
+  font-weight: var(--font-weight-regular, 400);
+}
+
+/* ── Default variant: vertical chevrons on the right ─────── */
+
+.number-input__chevrons {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  border-left: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.number-input__chevron-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 28px;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 100ms) ease, color var(--transition-fast, 100ms) ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.number-input__chevron-btn:first-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.number-input__chevron-btn:hover:not(:disabled) {
+  background-color: var(--bg-surface-2);
+  color: var(--text-main);
+}
+
+.number-input__chevron-btn:active:not(:disabled) {
+  background-color: var(--border-subtle);
+}
+
+.number-input__chevron-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ── Stepper variant: [−] [value] [+] horizontal ─────────── */
+
+.number-input--stepper .number-input__input {
+  text-align: center;
+  min-width: 56px;
+  flex: 0 1 auto;
+  padding: var(--space-3) var(--space-2);
+}
+
+.number-input__stepper-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  width: 44px;
+  flex-shrink: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-subtle);
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 100ms) ease, color var(--transition-fast, 100ms) ease;
+  padding: 0;
+}
+
+.number-input__stepper-btn--decrement {
+  border-right: 1px solid var(--border-subtle);
+}
+
+.number-input__stepper-btn--increment {
+  border-left: 1px solid var(--border-subtle);
+}
+
+.number-input__stepper-btn:hover:not(:disabled) {
+  background-color: var(--bg-surface-2);
+  color: var(--text-main);
+}
+
+.number-input__stepper-btn:active:not(:disabled) {
+  background-color: var(--border-subtle);
+}
+
+.number-input__stepper-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}

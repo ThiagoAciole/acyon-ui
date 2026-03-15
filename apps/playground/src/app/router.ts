@@ -1,11 +1,11 @@
 import { componentDefinitionsById } from '../registry';
 
-export type HomeRouteId = 'home-overview' | 'home-installation' | 'home-usage';
+export type HomeRouteId = 'home-overview' | 'home-installation' | 'home-usage' | 'home-icons';
 
 export interface HomeRoute {
   id: HomeRouteId;
   name: string;
-  icon: 'home' | 'download' | 'book';
+  icon: 'home' | 'download' | 'book' | 'component';
 }
 
 export const HOME_DEFAULT_ROUTE: HomeRouteId = 'home-overview';
@@ -14,6 +14,7 @@ export const homeRoutes: HomeRoute[] = [
   { id: 'home-overview', name: 'Visao Geral', icon: 'home' },
   { id: 'home-installation', name: 'Instalacao', icon: 'download' },
   { id: 'home-usage', name: 'Uso', icon: 'book' },
+  { id: 'home-icons', name: 'Icones', icon: 'component' },
 ];
 
 export type AppRoute =

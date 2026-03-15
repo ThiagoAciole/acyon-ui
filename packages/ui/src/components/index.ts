@@ -11,6 +11,7 @@ export * from './Dropdown/Dropdown';
 export * from './Checkbox/Checkbox';
 export * from './Radio/Radio';
 export * from './Slider/Slider';
+export * from './NumberInput/NumberInput';
 export * from './FileUpload/FileUpload';
 export * from './Card/Card';
 export * from './Box/Box';

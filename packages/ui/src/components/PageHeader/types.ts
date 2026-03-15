@@ -7,4 +7,5 @@ export interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
     onBack?: () => void;
     action?: React.ReactNode;
     width?: string;
+    mb?: string;
 }

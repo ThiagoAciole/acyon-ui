@@ -6,7 +6,7 @@ import { IconButton } from '../IconButton/IconButton';
 import { Icon } from '../../icons';
 import type { ToastContextValue, ToastData, ToastProviderProps } from './types';
 
-export type { ToastColor, ToastContextValue, ToastData, ToastPosition, ToastProviderProps } from './types';
+export type { ToastColor, ToastContextValue, ToastData, ToastPosition, ToastProviderProps, ToastVariant } from './types';
 
 const ToastContext = createContext<ToastContextValue | null>(null);
 
@@ -32,10 +32,11 @@ function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: (id: str
     }, [handleDismiss, toast.duration]);
 
     const color = toast.color ?? 'primary';
+    const variant = toast.variant ?? 'default';
     const icon = COLOR_ICONS[color] || COLOR_ICONS.primary;
 
     return (
-        <div className={classNames('toast', `toast--${color}`, exiting && 'toast--exiting')}>
+        <div className={classNames('toast', `toast--${color}`, variant === 'snackbar' && 'toast--snackbar', exiting && 'toast--exiting')}>
             <span className="toast-icon">
                 {icon}
             </span>

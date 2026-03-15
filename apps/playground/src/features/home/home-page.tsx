@@ -2,6 +2,7 @@ import { Badge, Box, Button, Card, CardBody, Flex, Grid, Heading, Heading4, Icon
 import { useNavigate } from 'react-router-dom';
 import type { HomeRouteId } from '../../app/router';
 import './home-page.css';
+import { IconsSection } from './sections/icons-section';
 import { InstallationSection } from './sections/installation-section';
 import { OverviewSection } from './sections/overview-section';
 import { UsageSection } from './sections/usage-section';
@@ -103,6 +104,7 @@ export function HomePage({ route }: HomePageProps) {
       {route === 'home-installation' ? <InstallationSection /> : null}
       {route === 'home-usage' ? <UsageSection /> : null}
       {route === 'home-overview' ? <OverviewSection /> : null}
+      {route === 'home-icons' ? <IconsSection /> : null}
     </Box>
   );
 }
