@@ -5,14 +5,14 @@
 .divider--horizontal {
   width: 100%;
   height: 1px;
-  background: var(--border-subtle);
+  background: var(--border-main);
   position: relative;
 }
 
 .divider--vertical {
   width: 1px;
   align-self: stretch;
-  background: var(--border-subtle);
+  background: var(--border-main);
 }
 
 .divider--labeled {
@@ -27,7 +27,7 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--border-subtle);
+  background: var(--border-main);
 }
 
 .divider__label {

@@ -5,8 +5,14 @@ import type { ComponentDefinition } from '../../types';
 
 type SpacerPlaygroundProps = {
   axis: 'horizontal' | 'vertical';
-  size: string;
+  size: number;
 };
+
+const DemoCard = ({ children }: { children: React.ReactNode }) => (
+  <Labs.Card style={{ padding: 16, minWidth: 120 }}>
+    <Labs.Text>{children}</Labs.Text>
+  </Labs.Card>
+);
 
 const spacerDefinition: ComponentDefinition<SpacerPlaygroundProps> = defineComponent<SpacerPlaygroundProps>({
   id: 'spacer',
@@ -17,32 +23,44 @@ const spacerDefinition: ComponentDefinition<SpacerPlaygroundProps> = defineCompo
   playground: {
     initialProps: {
       axis: 'horizontal',
-      size: '24px',
+      size: 24,
     },
     controls: [
-      { type: 'select', name: 'axis', label: 'Axis', options: [{ label: 'Horizontal', value: 'horizontal' }, { label: 'Vertical', value: 'vertical' }] },
-      { type: 'text', name: 'size', label: 'Size', placeholder: '24px' },
+      {
+        type: 'select',
+        name: 'axis',
+        label: 'Axis',
+        options: [
+          { label: 'Horizontal', value: 'horizontal' },
+          { label: 'Vertical', value: 'vertical' },
+        ],
+      },
+      { type: 'number', name: 'size', label: 'Size', placeholder: '24' },
     ],
-    render: (props) => props.axis === 'horizontal'
-      ? (
+    render: (props) =>
+      props.axis === 'horizontal' ? (
         <Labs.Flex align="center">
-          <Labs.Badge>Inicio</Labs.Badge>
+          <DemoCard>Início</DemoCard>
           <Labs.Spacer axis="horizontal" size={props.size} />
-          <Labs.Badge>Fim</Labs.Badge>
+          <DemoCard>Fim</DemoCard>
         </Labs.Flex>
-      )
-      : (
+      ) : (
         <Labs.Flex direction="column">
-          <Labs.Badge>Inicio</Labs.Badge>
+          <DemoCard>Início</DemoCard>
           <Labs.Spacer axis="vertical" size={props.size} />
-          <Labs.Badge>Fim</Labs.Badge>
+          <DemoCard>Fim</DemoCard>
         </Labs.Flex>
       ),
-    code: (props) => wrapSnippet(['Spacer'], [
-      'return (',
-      `  <Spacer axis="${props.axis}" size="${props.size}" />`,
-      ');',
-    ]),
+    code: (props) =>
+      wrapSnippet(['Spacer', 'Card', 'Text', 'Flex'], [
+        'return (',
+        props.axis === 'horizontal'
+          ? `
+    <Spacer axis="${props.axis}" size={${props.size}} />`
+          : `
+    <Spacer axis="${props.axis}" size={${props.size}} />`,
+        ');',
+      ]),
   },
 });
 

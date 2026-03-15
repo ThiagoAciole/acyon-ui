@@ -1,15 +1,18 @@
+import { Box } from '@aciole/acyon';
+import { buildOpeningTag, DatePickerPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
-import { buildOpeningTag, DatePickerPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
 
 type DatePickerPlaygroundProps = { label: string; placeholder: string; hint: string; disabled: boolean; value: string };
+const today = new Date();
+const initialDate = today.toISOString().split('T')[0];
 
 const initialProps: DatePickerPlaygroundProps = {
   label: 'Data',
   placeholder: 'dd/mm/aaaa',
   hint: 'Selecione uma data',
   disabled: false,
-  value: '2026-03-12',
+  value: initialDate,
 };
 
 const datepickerDefinition: ComponentDefinition<DatePickerPlaygroundProps> = defineComponent({
@@ -24,10 +27,16 @@ const datepickerDefinition: ComponentDefinition<DatePickerPlaygroundProps> = def
       { type: 'text', name: 'label', label: 'Label', placeholder: 'Data' },
       { type: 'text', name: 'placeholder', label: 'Placeholder', placeholder: 'dd/mm/aaaa' },
       { type: 'text', name: 'hint', label: 'Hint', placeholder: 'Selecione uma data' },
-      { type: 'text', name: 'value', label: 'Value (ISO)', placeholder: '2026-03-12' },
+      { type: 'text', name: 'value', label: 'Value', placeholder: initialDate },
       { type: 'boolean', name: 'disabled', label: 'Disabled' },
     ],
-    render: (props) => <DatePickerPreview {...props} />,
+    render: (props) => {
+      return (
+        <Box style={{ width: '100%', height: '480px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'start', gap: 'var(--space-4)' }}>
+          <DatePickerPreview {...props} />
+        </Box>
+      );
+    },
     code: (props) => wrapSnippet(['DatePicker'], [
       'return (',
       `  ${buildOpeningTag('DatePicker', { label: props.label, placeholder: props.placeholder, hint: props.hint, value: props.value, disabled: props.disabled })} />`,
