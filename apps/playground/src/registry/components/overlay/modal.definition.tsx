@@ -1,4 +1,4 @@
-import { ModalPreview } from '../../../shared/playground/playground-helpers';
+import { ModalPreview } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
 

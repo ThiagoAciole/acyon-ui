@@ -1,5 +1,5 @@
 import * as Labs from 'acioleui';
-import { createSnippet, buildOpeningTag } from '../../../shared/snippet/create-snippet';
+import { buildOpeningTag, createSnippet } from '../../../utils/create-snippet';
 import { defineComponent } from '../../defineComponent';
 
 type ButtonPlaygroundProps = Pick<Labs.ButtonProps, 'variant' | 'color' | 'size' | 'full' | 'loading'> & {

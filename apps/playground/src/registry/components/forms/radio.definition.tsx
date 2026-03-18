@@ -1,7 +1,7 @@
 import * as Labs from 'acioleui';
+import { buildOpeningTag, RadioPreview, wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
-import { buildOpeningTag, RadioPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
 
 type RadioPlaygroundProps = Pick<Labs.RadioProps, 'label' | 'checked' | 'disabled'>;
 

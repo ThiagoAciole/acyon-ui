@@ -1,7 +1,7 @@
 import * as Labs from 'acioleui';
+import { buildOpeningTag, SwitchPreview, wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
-import { buildOpeningTag, SwitchPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
 
 type SwitchPlaygroundProps = Pick<Labs.SwitchProps, 'label' | 'checked' | 'disabled' | 'size'>;
 

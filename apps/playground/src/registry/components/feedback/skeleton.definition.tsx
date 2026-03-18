@@ -1,5 +1,5 @@
 import * as Labs from 'acioleui';
-import { buildOpeningTag, normalizeDimension, wrapSnippet } from '../../../shared/playground/playground-helpers';
+import { buildOpeningTag, normalizeDimension, wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
 

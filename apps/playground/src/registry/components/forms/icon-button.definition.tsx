@@ -1,7 +1,7 @@
 import * as Labs from 'acioleui';
+import { buildOpeningTag, wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
-import { buildOpeningTag, wrapSnippet } from '../../../shared/playground/playground-helpers';
 
 type IconButtonPlaygroundProps = Pick<Labs.IconButtonProps, 'variant' | 'color' | 'size' | 'disabled'> & { label: string };
 

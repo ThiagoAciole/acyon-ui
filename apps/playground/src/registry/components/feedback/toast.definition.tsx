@@ -1,4 +1,4 @@
-import { ToastPreview } from '../../../shared/playground/playground-helpers';
+import { ToastPreview } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
 

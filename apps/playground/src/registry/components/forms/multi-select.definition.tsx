@@ -1,6 +1,6 @@
+import { MultiSelectPreview, wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
-import { MultiSelectPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
 
 type MultiSelectPlaygroundProps = { label: string; placeholder: string; disabled: boolean };
 

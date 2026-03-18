@@ -1,5 +1,5 @@
 import { Box } from 'acioleui';
-import { buildOpeningTag, DatePickerPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
+import { buildOpeningTag, DatePickerPreview, wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
 

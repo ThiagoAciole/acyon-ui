@@ -28,8 +28,8 @@ export function AppShell({
     <Flex className="playground-shell">
       <Sidebar collapsed={sidebarCollapsed} onToggle={onSidebarToggle}>
         <Sidebar.Header
-          icon={<img src={icon} alt="LabsUI Icon" style={{ height: '24px' }} />}
-          logo={<img src={theme === 'light' ? logoLight : logoDark} alt="LabsUI Logo" style={{ height: '16px' }} />}
+          icon={<img src={icon} alt="LabsUI Icon" style={{ height: '24px', }} />}
+          logo={<img src={theme === 'light' ? logoLight : logoDark} alt="LabsUI Logo" style={{ height: '18px' }} />}
         />
 
         <Box style={{ padding: 'var(--space-2)', overflowY: 'auto', flex: 1 }}>

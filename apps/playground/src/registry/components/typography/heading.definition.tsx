@@ -1,6 +1,6 @@
 import * as Labs from 'acioleui';
 import * as React from 'react';
-import { wrapSnippet } from '../../../shared/playground/playground-helpers';
+import { wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
 

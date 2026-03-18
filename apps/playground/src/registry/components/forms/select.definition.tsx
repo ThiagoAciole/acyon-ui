@@ -1,7 +1,7 @@
 import * as Labs from 'acioleui';
+import { SelectPreview, wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
-import { SelectPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
 
 type SelectPlaygroundProps = Pick<Labs.SelectProps, 'label' | 'value' | 'placeholder' | 'disabled'>;
 

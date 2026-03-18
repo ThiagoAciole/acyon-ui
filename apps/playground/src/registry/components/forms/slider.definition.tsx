@@ -1,6 +1,6 @@
+import { buildOpeningTag, SliderPreview, wrapSnippet } from '../../../utils/playground-helpers';
 import { defineComponent } from '../../defineComponent';
 import type { ComponentDefinition } from '../../types';
-import { buildOpeningTag, SliderPreview, wrapSnippet } from '../../../shared/playground/playground-helpers';
 
 type SliderPlaygroundProps = { label: string; supportText: string; min: string; max: string; value: string };
 
